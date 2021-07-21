@@ -1642,3 +1642,9 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+@media screen and (min-width:992px) {
+   .powrLoaded iframe {
+    width: 900px !important;
+}
+}
