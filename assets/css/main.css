@@ -1602,7 +1602,10 @@ input, select, textarea {
 			}
 
 		}
-
+/* Testimonial */ 
+	#test
+		img[alt="POWR logo"] (where "image-name" is replaced by your value. ) 
+		{opacity:0;}
 /* Footer */
 
 	#footer {
