@@ -422,6 +422,30 @@
             from { opacity: 0; transform: translateY(20px);}
             to { opacity: 1; transform: translateY(0);}
         }
+        .testimonial-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .testimonial-arrow {
+            background: var(--accent);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .testimonial-arrow:hover,
+        .testimonial-arrow:focus {
+            background: var(--primary);
+        }
         
         /* Clients Section - Mobile Optimized */
         .clients-section {
@@ -454,8 +478,11 @@
             justify-content: center;
             align-items: center;
             height: 60px;
+            width: 100px;
+            position: relative;
+            border-radius: 7px;
         }
-        .client-logo img {
+        .client-logo img, .client-logo span {
             max-width: 80px;
             max-height: 40px;
             width: auto;
@@ -466,7 +493,12 @@
             box-shadow: none;
             border-radius: 7px;
             background: #fff;
-            padding: 5px;
+            padding: 5px 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #444;
+            cursor: default;
         }
         .client-logo:hover,
         .client-logo:focus {
@@ -474,11 +506,33 @@
             opacity: 1;
         }
         .client-logo:hover img,
-        .client-logo:focus img {
-            transform: scale(1.5);
+        .client-logo:focus img,
+        .client-logo:hover span,
+        .client-logo:focus span {
+            transform: scale(1.25);
             z-index: 10;
             box-shadow: 0 8px 32px 0 rgba(0,0,0,0.10);
             background: #fff;
+        }
+        .client-logo[title]:hover:after, .client-logo[title]:focus:after {
+            content: attr(title);
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.85);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 5px;
+            font-size: 0.92rem;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 1;
+            z-index: 100;
+        }
+        .client-logo[title]:after {
+            content: '';
+            opacity: 0;
         }
         
         /* Contact Section - Mobile Optimized */
@@ -662,9 +716,10 @@
             .spec-card {
                 padding: 20px 15px;
             }
-            .client-logo img {
+            .client-logo img, .client-logo span {
                 max-width: 70px;
                 max-height: 35px;
+                font-size: 0.89rem;
             }
         }
     </style>
@@ -824,6 +879,14 @@
                     </blockquote>
                 </div>
             </div>
+            <div class="testimonial-arrows">
+                <button class="testimonial-arrow" id="testimonial-prev" aria-label="Previous testimonial">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="testimonial-arrow" id="testimonial-next" aria-label="Next testimonial">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -834,21 +897,86 @@
                 <div class="divider"></div>
             </div>
             <div class="clients-grid animate-on-scroll">
-                <div class="client-logo"><span>DETTOL</span></div>
-                <div class="client-logo"><span>VASELINE</span></div>
-                <div class="client-logo"><span>L'ORÉAL</span></div>
-                <div class="client-logo"><span>PAMPERS</span></div>
-                <div class="client-logo"><span>PANASONIC</span></div>
-                <div class="client-logo"><span>IKEA</span></div>
-                <div class="client-logo"><span>VISA</span></div>
-                <div class="client-logo"><span>UNILEVER</span></div>
-                <div class="client-logo"><span>McDONALD'S</span></div>
-                <div class="client-logo"><span>TOYOTA</span></div>
-                <div class="client-logo"><span>KFC</span></div>
-                <div class="client-logo"><span>PEUGEOT</span></div>
-                <div class="client-logo"><span>ETISALAT</span></div>
-                <div class="client-logo"><span>VODAFONE</span></div>
-                <div class="client-logo"><span>NESTLE</span></div>
+                <!-- Non-clickable logos with tooltip on hover (company name in title) -->
+                <div class="client-logo" title="Mai Dubai"><span>MAI DUBAI</span></div>
+                <div class="client-logo" title="Sobha CSR"><span>SOBHA CSR</span></div>
+                <div class="client-logo" title="Al Osra sugar"><span>AL OSRA SUGAR</span></div>
+                <div class="client-logo" title="Warner Brothers World Abu Dhabi"><span>WARNER BROTHERS WORLD</span></div>
+                <div class="client-logo" title="Kinder Joy"><span>KINDER JOY</span></div>
+                <div class="client-logo" title="McDonald’s"><span>MCDONALD'S</span></div>
+                <div class="client-logo" title="Peugeot"><span>PEUGEOT</span></div>
+                <div class="client-logo" title="Head & Shoulders"><span>HEAD & SHOULDERS</span></div>
+                <div class="client-logo" title="Fly Dubai"><span>FLY DUBAI</span></div>
+                <div class="client-logo" title="Roads & Transport Authority, Dubai (RTA)"><span>RTA DUBAI</span></div>
+                <div class="client-logo" title="IKEA"><span>IKEA</span></div>
+                <div class="client-logo" title="DAC"><span>DAC</span></div>
+                <div class="client-logo" title="Red Label"><span>RED LABEL</span></div>
+                <div class="client-logo" title="Dubai Shopping Festival"><span>DUBAI SHOPPING FESTIVAL</span></div>
+                <div class="client-logo" title="Renault"><span>RENAULT</span></div>
+                <div class="client-logo" title="Always"><span>ALWAYS</span></div>
+                <div class="client-logo" title="Johnson’s"><span>JOHNSON'S</span></div>
+                <div class="client-logo" title="Whisper"><span>WHISPER</span></div>
+                <div class="client-logo" title="KFC"><span>KFC</span></div>
+                <div class="client-logo" title="UKVI"><span>UKVI</span></div>
+                <div class="client-logo" title="India Gate Rice"><span>INDIA GATE RICE</span></div>
+                <div class="client-logo" title="Pediasure"><span>PEDIASURE</span></div>
+                <div class="client-logo" title="Clorox"><span>CLOROX</span></div>
+                <div class="client-logo" title="Puck"><span>PUCK</span></div>
+                <div class="client-logo" title="Oreo"><span>OREO</span></div>
+                <div class="client-logo" title="Garnier"><span>GARNIER</span></div>
+                <div class="client-logo" title="Fair & Lovely"><span>FAIR & LOVELY</span></div>
+                <div class="client-logo" title="Vaseline"><span>VASELINE</span></div>
+                <div class="client-logo" title="Rainbow Milk"><span>RAINBOW MILK</span></div>
+                <div class="client-logo" title="Damas Jewellery"><span>DAMAS JEWELLERY</span></div>
+                <div class="client-logo" title="Cafu"><span>CAFU</span></div>
+                <div class="client-logo" title="Careem"><span>CAREEM</span></div>
+                <div class="client-logo" title="Al Jazira television"><span>AL JAZIRA TV</span></div>
+                <div class="client-logo" title="Kadak FM"><span>KADAK FM</span></div>
+                <div class="client-logo" title="L’Oréal"><span>L’ORÉAL</span></div>
+                <div class="client-logo" title="Etisalat"><span>ETISALAT</span></div>
+                <div class="client-logo" title="Du"><span>DU</span></div>
+                <div class="client-logo" title="Dole fruits"><span>DOLE FRUITS</span></div>
+                <div class="client-logo" title="Veet"><span>VEET</span></div>
+                <div class="client-logo" title="Vodafone"><span>VODAFONE</span></div>
+                <div class="client-logo" title="Nestle"><span>NESTLE</span></div>
+                <div class="client-logo" title="Pantene"><span>PANTENE</span></div>
+                <div class="client-logo" title="Panasonic"><span>PANASONIC</span></div>
+                <div class="client-logo" title="Sunsilk"><span>SUNSILK</span></div>
+                <div class="client-logo" title="Tang"><span>TANG</span></div>
+                <div class="client-logo" title="Nestle professional services"><span>NESTLE PROFESSIONAL</span></div>
+                <div class="client-logo" title="Carrefour"><span>CARREFOUR</span></div>
+                <div class="client-logo" title="Sunsilk"><span>SUNSILK</span></div>
+                <div class="client-logo" title="Scholl"><span>SCHOLL</span></div>
+                <div class="client-logo" title="Afia oil"><span>AFIA OIL</span></div>
+                <div class="client-logo" title="Pampers"><span>PAMPERS</span></div>
+                <div class="client-logo" title="VISA"><span>VISA</span></div>
+                <div class="client-logo" title="Marmum dairy"><span>MARMUM DAIRY</span></div>
+                <div class="client-logo" title="Dettol"><span>DETTOL</span></div>
+                <div class="client-logo" title="Bab Al Shams resort"><span>BAB AL SHAMS RESORT</span></div>
+                <div class="client-logo" title="Noor oil"><span>NOOR OIL</span></div>
+                <div class="client-logo" title="Big Ticket Abu Dhabi"><span>BIG TICKET ABU DHABI</span></div>
+                <div class="client-logo" title="Galaxy chocolates"><span>GALAXY CHOCOLATES</span></div>
+                <div class="client-logo" title="Downy"><span>DOWNY</span></div>
+                <div class="client-logo" title="Air wick"><span>AIR WICK</span></div>
+                <div class="client-logo" title="Lipton"><span>LIPTON</span></div>
+                <div class="client-logo" title="Najm cards"><span>NAJM CARDS</span></div>
+                <div class="client-logo" title="Deem bank"><span>DEEM BANK</span></div>
+                <div class="client-logo" title="ADIB"><span>ADIB</span></div>
+                <div class="client-logo" title="RAKBank"><span>RAKBANK</span></div>
+                <div class="client-logo" title="Citibank"><span>CITIBANK</span></div>
+                <div class="client-logo" title="Mashreq Bank"><span>MASHREQ BANK</span></div>
+                <div class="client-logo" title="Mashreq Neo"><span>MASHREQ NEO</span></div>
+                <div class="client-logo" title="Mashreq Gold"><span>MASHREQ GOLD</span></div>
+                <div class="client-logo" title="Al Rawabi dairy"><span>AL RAWABI DAIRY</span></div>
+                <div class="client-logo" title="Leaseplan car rental"><span>LEASEPLAN</span></div>
+                <div class="client-logo" title="Toyota"><span>TOYOTA</span></div>
+                <div class="client-logo" title="Galleria Mall Abu Dhabi"><span>GALLERIA MALL ABU DHABI</span></div>
+                <div class="client-logo" title="Jebel Ali Village by NAKHEEL"><span>JEBEL ALI VILLAGE</span></div>
+                <div class="client-logo" title="Sun & Sand sports"><span>SUN & SAND SPORTS</span></div>
+                <div class="client-logo" title="Malabar Gold and Diamond"><span>MALABAR GOLD & DIAMOND</span></div>
+                <div class="client-logo" title="Department of Culture and Tourism, Abu Dhabi"><span>ABU DHABI DCT</span></div>
+                <div class="client-logo" title="Mansam Luxury Perfumes"><span>MANSAM PERFUMES</span></div>
+                <div class="client-logo" title="Himalaya Herbals UAE"><span>HIMALAYA HERBALS</span></div>
             </div>
         </div>
     </section>
@@ -938,10 +1066,12 @@
                 heroContent.classList.add('animate');
             }, 300);
             
-            // Testimonial slider
+            // Testimonial slider with arrows and auto-rotate
             const slides = document.querySelectorAll('.testimonial-slide');
             let current = 0;
             let intervalId;
+            const prevBtn = document.getElementById('testimonial-prev');
+            const nextBtn = document.getElementById('testimonial-next');
             
             function showSlide(idx) {
                 slides.forEach((slide, i) => {
@@ -949,15 +1079,33 @@
                 });
             }
             
-            function startSlider() {
-                intervalId = setInterval(() => {
-                    current = (current + 1) % slides.length;
-                    showSlide(current);
-                }, 6000);
+            function nextSlide() {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            }
+            function prevSlide() {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
             }
             
+            function startSlider() {
+                intervalId = setInterval(nextSlide, 6000);
+            }
             function stopSlider() {
                 clearInterval(intervalId);
+            }
+            
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    stopSlider();
+                    prevSlide();
+                    startSlider();
+                });
+                nextBtn.addEventListener('click', () => {
+                    stopSlider();
+                    nextSlide();
+                    startSlider();
+                });
             }
             
             const slider = document.getElementById('testimonial-slider');
