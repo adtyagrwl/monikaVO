@@ -32,10 +32,10 @@
             line-height: 1.2;
         }
 .container {
-    width: 98vw;           /* or 100vw for true edge-to-edge */
-    max-width: 1600px;     /* increase or remove for more width */
+    width: 98vw;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 8px;        /* reduce padding for less space on sides */
+    padding: 0 8px;
     box-sizing: border-box;
 }
         .btn {
@@ -393,7 +393,6 @@
             font-size: 1rem;
         }
         .clients-grid {
-
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             margin: 0 auto;
@@ -476,6 +475,18 @@
         .client-logo[title]:after {
             content: '';
             opacity: 0;
+        }
+        .client-logo img[alt="BAB AL SHAMS RESORT"] {
+            max-height: 45px;
+            max-width: 80px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            background: none;
+            box-shadow: none;
+            padding: 0;
         }
         .testimonial-slider {
             max-width: 800px;
@@ -639,22 +650,7 @@
             color: #94a3b8;
             font-size: 0.9rem;
         }
-        .cookie-notice {
-            background: rgba(0, 0, 0, 0.7);
-            color: var(--white);
-            padding: 12px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 0.85rem;
-            z-index: 1000;
-        }
-        .cookie-notice a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        /* Removed .cookie-notice styling */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -705,12 +701,11 @@
             .demos-grid {
                 gap: 30px;
             }
-	    
     	    .container {
-        max-width: 1800px; /* Wider for desktops and large screens */
-        padding: 0 24px;
-    }
-}
+                max-width: 1800px;
+                padding: 0 24px;
+            }
+        }
         @media (max-width: 767px) {
             .section-title h2 {
                 font-size: 2rem;
@@ -730,10 +725,10 @@
                 max-height: 35px;
                 font-size: 0.89rem;
             }
-	    .container {
-        	width: 100vw;
-        	padding: 0 4px;
-		}
+	        .container {
+        	    width: 100vw;
+        	    padding: 0 4px;
+		    }
         }
     </style>
 </head>
@@ -752,8 +747,8 @@
                 <li><a href="#specializations">Specializations</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#demos">Demos</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
             </ul>
         </div>
     </header>
@@ -839,8 +834,6 @@
 <a class="client-logo" title="Kinder Joy" href="https://www.youtube.com/watch?v=rkSbqxK4pYg" target="_blank"><img src="images/Kinder.svg" alt="KINDER JOY" /></a>
 <a class="client-logo" title="McDonald’s" href="https://www.youtube.com/watch?v=PNcGuRuPtLc" target="_blank"><img src="images/mac.svg" alt="MCDONALD'S" /></a>
 <a class="client-logo" title="Fly Dubai" href="https://www.youtube.com/watch?v=TUX2A_A0gcI" target="_blank"><img src="images/fly.svg" alt="FLY DUBAI" /></a>
-
-			<!--links pending-->
 <a class="client-logo" title="Peugeot" href="" target="_blank"><img src="images/peugeot.png" alt="PEUGEOT" /></a>
 <a class="client-logo" title="Head & Shoulders" href="" target="_blank"><img src="images/head.svg" alt="HEAD & SHOULDERS" /></a>		 
 <a class="client-logo" title="Roads & Transport Authority, Dubai (RTA)" href="" target="_blank"><img src="images/RTA.png" alt="RTA DUBAI" /></a>
@@ -886,8 +879,8 @@
 <a class="client-logo" title="Pampers" href="commercial_demo.mp3" target="_blank"><img src="images/pampers.png" alt="PAMPERS" /></a>
 <a class="client-logo" title="VISA" href="commercial_demo.mp3" target="_blank"><img src="images/visa.png" alt="VISA" /></a>			
 <a class="client-logo" title="Marmum dairy" href="commercial_demo.mp3" target="_blank"><img src="images/marmum_dairy.png" alt="MARMUM DAIRY" /></a>
-<a class="client-logo" title="Dettol" href="commercial_demo.mp3" target="_blank"><img src="images/dettol.png" alt="DETTOL" /></a	
-<a class="client-logo" title="" href="" target="_blank"></a>																     
+<a class="client-logo" title="Dettol" href="commercial_demo.mp3" target="_blank"><img src="images/dettol.png" alt="DETTOL" /></a>	
+<a class="client-logo" title="" href="" target="_blank"></a>
 <a class="client-logo" title="Noor oil" href="commercial_demo.mp3" target="_blank"><img src="images/noor.jpeg" alt="NOOR OIL" /></a>
 <a class="client-logo" title="Big Ticket Abu Dhabi" href="commercial_demo.mp3" target="_blank"><img src="images/BTAD.webp" alt="BIG TICKET ABU DHABI" /></a>
 <a class="client-logo" title="Galaxy chocolates" href="commercial_demo.mp3" target="_blank"><img src="images/galaxy.svg" alt="GALAXY CHOCOLATES" /></a>
@@ -914,6 +907,29 @@
 <a class="client-logo" title="Himalaya Herbals UAE" href="commercial_demo.mp3" target="_blank"><img src="images/himalaya.webp" alt="HIMALAYA HERBALS" /></a>
 <a class="client-logo" title="Sadia" href="commercial_demo.mp3" target="_blank"><img src="images/sadia.svg" alt="Sadia" /></a>
 <a class="client-logo" title="Bab Al Shams resort" href="commercial_demo.mp3" target="_blank"><img src="images/BAS1.png" alt="BAB AL SHAMS RESORT" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-content animate-on-scroll">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:info@monikavo.com" style="color:#fff;text-decoration: underline;">info@monikavo.com</a></p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MonikaVO/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/monikavo.dxb/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://soundcloud.com/monikavo" title="SoundCloud" target="_blank"><i class="fab fa-soundcloud"></i></a>
+                    <a href="https://www.youtube.com/c/MonikaVO" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -965,27 +981,12 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-content animate-on-scroll">
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/MonikaVO/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/monikavo.dxb/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://soundcloud.com/monikavo"><i class="fab fa-soundcloud"></i></a>
-                        <a href="https://www.youtube.com/c/MonikaVO"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
    <footer>
     <div class="container">
         <div class="footer-content">
             <div class="footer-logo"><span class="monika-bold">MONIKA</span> VOICEOVER</div>
             <p>Professional Voiceover Artist</p>
-            <p class="footer-email"><a href="mailto:info@monikavo.com">info@monikavo.com</a></p>
+            <!-- Email and social links moved to contact section -->
         </div>
         <div class="copyright">
             <p>&copy; 2025 MONIKA VOICEOVER. All Rights Reserved.</p>
@@ -994,9 +995,7 @@
     </div>
 </footer>
 
-    <div class="cookie-notice">
-        This site uses cookies for analytical purposes only.
-    </div>
+    <!-- Cookie notice removed -->
 
   <script>
         // Navigation toggle functionality
