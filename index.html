@@ -476,6 +476,42 @@
             content: '';
             opacity: 0;
         }
+
+	 .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            animation: fadeIn 1s;
+        }
+        .testimonial-slide.active {
+            display: block;
+        }
+        .testimonial-slide blockquote {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        .testimonial-slide footer {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .testimonial-arrows {
+            display: flex;
+       
         .contact-section {
             background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
             color: var(--white);
@@ -873,7 +909,7 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials-section">
+        <section id="testimonials" class="testimonials-section">
         <div class="container">
             <div class="section-title">
                 <h2>Testimonials</h2>
@@ -992,7 +1028,6 @@
                 heroContent.classList.add('animate');
             }, 300);
 
-            // Testimonial slider logic (original, as in your file)
             const slides = document.querySelectorAll('.testimonial-slide');
             let current = 0;
             let intervalId;
