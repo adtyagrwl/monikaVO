@@ -135,16 +135,33 @@
             width: 220px;
             border-right: none;
         }
-        .nav-toggle {
-            display: block;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--primary);
-            background: none;
-            border: none;
-            z-index: 1001;
-            padding: 10px;
-        }
+       .nav-toggle {
+    display: flex;                  /* was block */
+    align-items: center;            /* vertically center icon */
+    justify-content: center;        /* horizontally center icon */
+    width: 48px;                    /* wider click area */
+    height: 48px;
+    font-size: 2rem;                /* bigger icon */
+    cursor: pointer;
+    color: var(--primary);
+    background: none;
+    border: none;
+    z-index: 1001;
+    padding: 0;                     /* remove default padding */
+    margin-right: 0;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+    background: rgba(59, 130, 246, 0.06); /* subtle highlight */
+}
+
+.nav-toggle i {
+    pointer-events: none;           /* makes button, not icon, handle clicks */
+    font-size: 2rem;
+}
         .nav-links {
 	    dosplay: flexed;
             position: fixed;
