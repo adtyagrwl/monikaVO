@@ -135,35 +135,34 @@
             width: 220px;
             border-right: none;
         }
-       .nav-toggle {
-    display: flex;                  /* was block */
-    align-items: center;            /* vertically center icon */
-    justify-content: center;        /* horizontally center icon */
-    width: 48px;                    /* wider click area */
-    height: 48px;
-    font-size: 2rem;                /* bigger icon */
-    cursor: pointer;
-    color: var(--primary);
-    background: none;
-    border: none;
-    z-index: 1001;
-    padding: 0;                     /* remove default padding */
-    margin-right: 0;
-    transition: background 0.2s;
-    border-radius: 50%;
-}
+        .nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary);
+            background: none;
+            border: none;
+            z-index: 1001;
+            padding: 0;
+            margin-right: 0;
+            transition: background 0.2s;
+            border-radius: 50%;
+        }
 
-.nav-toggle:focus,
-.nav-toggle:hover {
-    background: rgba(59, 130, 246, 0.06); /* subtle highlight */
-}
+        .nav-toggle:focus,
+        .nav-toggle:hover {
+            background: rgba(59, 130, 246, 0.06);
+        }
 
-.nav-toggle i {
-    pointer-events: none;           /* makes button, not icon, handle clicks */
-    font-size: 2rem;
-}
+        .nav-toggle i {
+            pointer-events: none;
+            font-size: 2rem;
+        }
         .nav-links {
-	    dosplay: flexed;
             position: fixed;
             top: 0;
             right: -100%;
@@ -348,7 +347,6 @@
             display: block;
             transition: var(--transition);
         }
-        /* Demos Section - Mobile Optimized */
         .demos-section {
             background: var(--light);
             padding: 60px 0;
@@ -393,7 +391,6 @@
             margin-bottom: 20px;
             font-size: 1rem;
         }
-        /* Clients Grid (migrated into demos-section) */
         .clients-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -476,8 +473,7 @@
             content: '';
             opacity: 0;
         }
-
-	 .testimonial-slider {
+        .testimonial-slider {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
@@ -511,7 +507,28 @@
         }
         .testimonial-arrows {
             display: flex;
-       
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .testimonial-arrow {
+            background: var(--accent);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .testimonial-arrow:hover,
+        .testimonial-arrow:focus {
+            background: var(--primary);
+        }
         .contact-section {
             background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
             color: var(--white);
@@ -592,7 +609,7 @@
             padding-bottom: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-	    .footer-email {
+        .footer-email {
             text-align: center;
             margin: 16px 0 0 0;
             font-size: 1.07em;
@@ -793,7 +810,6 @@
         </div>
     </section>
 
-    <!-- Combined Demos and Clients Section -->
     <section id="demos" class="demos-section">
         <div class="container">
             <div class="section-title">
@@ -909,7 +925,7 @@
         </div>
     </section>
 
-        <section id="testimonials" class="testimonials-section">
+    <section id="testimonials" class="testimonials-section">
         <div class="container">
             <div class="section-title">
                 <h2>Testimonials</h2>
@@ -979,7 +995,7 @@
         </div>
         <div class="copyright">
             <p>&copy; 2025 MONIKA VOICEOVER. All Rights Reserved.</p>
-		<p>Website designed and marketed by © citta.world LTD.</p>
+		    <p>Website designed and marketed by © citta.world LTD.</p>
         </div>
     </div>
 </footer>
@@ -1028,6 +1044,7 @@
                 heroContent.classList.add('animate');
             }, 300);
 
+            // Testimonial slider logic
             const slides = document.querySelectorAll('.testimonial-slide');
             let current = 0;
             let intervalId;
