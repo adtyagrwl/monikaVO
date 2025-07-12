@@ -31,12 +31,13 @@
             font-weight: 600;
             line-height: 1.2;
         }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+.container {
+    width: 98vw;           /* or 100vw for true edge-to-edge */
+    max-width: 1600px;     /* increase or remove for more width */
+    margin: 0 auto;
+    padding: 0 8px;        /* reduce padding for less space on sides */
+    box-sizing: border-box;
+}
         .btn {
             display: inline-block;
             background: transparent;
@@ -392,11 +393,14 @@
             font-size: 1rem;
         }
         .clients-grid {
+
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            max-width: 1400px;
             margin: 0 auto;
+    	    width: 100%;
+   	    max-width: none;
+            margin: 0 auto;
+	    padding: 0;
             align-items: center;
             justify-items: center;
             transform: translateY(30px);
@@ -707,15 +711,20 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        @media (min-width: 992px) {
+        @media (min-width: 1200px) {
             .spec-grid.spec-six {
                 grid-template-columns: repeat(5, 1fr);
             }
             .demos-grid {
                 gap: 30px;
             }
-        }
-        @media (max-width: 480px) {
+	    
+    	    .container {
+        max-width: 1800px; /* Wider for desktops and large screens */
+        padding: 0 24px;
+    }
+}
+        @media (max-width: 767px) {
             .section-title h2 {
                 font-size: 2rem;
             }
@@ -734,6 +743,10 @@
                 max-height: 35px;
                 font-size: 0.89rem;
             }
+	    .container {
+        	width: 100vw;
+        	padding: 0 4px;
+		}
         }
     </style>
 </head>
