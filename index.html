@@ -6,7 +6,7 @@
   <title>Monika VO | Voiceover Artist</title>
   <meta name="description" content="Professional voiceover artist with 16+ years of experience. Warm, versatile voice for commercials, corporate, e-learning, and documentaries.">
   
-  <!-- Fonts Restored -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,10 +17,12 @@
   <style>
     /* ---------- RESET & TOKENS ---------- */
     :root {
-      --bg: #fafafa;
-      --fg: #111111;
-      --fg-muted: #555555;
-      --border: #eaeaea;
+      /* Warmer, richer palette */
+      --bg-solid: #fff9f5;
+      --bg-header: rgba(255, 249, 245, 0.85);
+      --fg: #2c1a12; /* Deep warm espresso */
+      --fg-muted: #6b5a52; /* Warm grey/brown */
+      --border: #ebdcd5;
       --accent: #ff6b00; /* Orange accent */
       
       --font-display: 'Instrument Serif', Georgia, serif;
@@ -38,12 +40,15 @@
     
     body {
       font-family: var(--font-body);
-      background: var(--bg);
       color: var(--fg);
       line-height: 1.5;
       font-size: 1rem;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      
+      /* Vibrant, warm, textured background */
+      background: linear-gradient(rgba(255, 249, 245, 0.94), rgba(255, 249, 245, 0.97)), 
+                  url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover fixed no-repeat;
     }
 
     img { max-width: 100%; display: block; }
@@ -79,7 +84,7 @@
       display: block;
     }
 
-    /* ---------- BUTTONS (Mobile Friendly Hit Areas) ---------- */
+    /* ---------- BUTTONS ---------- */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -94,11 +99,11 @@
       overflow: hidden;
     }
 
-    .btn-primary { background: var(--fg); color: var(--bg); }
+    .btn-primary { background: var(--fg); color: var(--bg-solid); }
     .btn-primary:hover { background: var(--fg-muted); }
 
     .btn-outline { border: 1px solid var(--border); color: var(--fg); background: transparent; }
-    .btn-outline:hover { border-color: var(--fg); background: rgba(0,0,0,0.03); }
+    .btn-outline:hover { border-color: var(--fg); background: rgba(44, 26, 18, 0.03); }
 
     .btn-arrow-wrapper { display: inline-flex; align-items: center; gap: 0.5rem; }
 
@@ -115,7 +120,7 @@
 
     .site-header.scrolled {
       padding: 1rem 0;
-      background: rgba(250, 250, 250, 0.95);
+      background: var(--bg-header);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -179,7 +184,7 @@
     .mobile-menu {
       position: fixed;
       inset: 0;
-      background: var(--bg);
+      background: var(--bg-solid);
       z-index: 100;
       display: flex;
       flex-direction: column;
@@ -208,19 +213,6 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 80vw;
-      background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .hero-content {
       position: relative;
       z-index: 1;
@@ -235,7 +227,8 @@
       gap: 0.5rem;
       padding: 0.4rem 1rem;
       border-radius: 999px;
-      background: var(--border);
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--border);
       font-size: 0.8rem;
       font-weight: 500;
       color: var(--fg-muted);
@@ -318,7 +311,7 @@
       content: 'Play Sample';
       position: absolute;
       inset: 0;
-      background: rgba(5, 5, 5, 0.9);
+      background: rgba(44, 26, 18, 0.9);
       color: #ffffff;
       font-size: 0.8rem;
       font-weight: 500;
@@ -333,7 +326,7 @@
 
     .client-logo:hover {
       transform: scale(1.05);
-      border-color: #cccccc;
+      border-color: var(--fg-muted);
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       z-index: 10;
     }
@@ -344,7 +337,7 @@
     .client-logo.missing { cursor: default; }
     .client-logo.missing::after {
       content: 'Demo not shared';
-      background: rgba(5, 5, 5, 0.95);
+      background: rgba(44, 26, 18, 0.95);
       font-size: 0.75rem;
     }
 
@@ -368,7 +361,7 @@
       transition: padding var(--transition), background var(--transition);
     }
 
-    .spec-item:hover { padding-left: 1rem; background: #f5f5f5; }
+    .spec-item:hover { padding-left: 1rem; background: rgba(255, 255, 255, 0.5); }
 
     .spec-number { font-family: var(--font-display); font-size: 1rem; color: var(--fg-muted); }
     .spec-item h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
@@ -382,34 +375,6 @@
 
     .about-text h2 { margin-bottom: 1.5rem; }
     .about-text p { color: var(--fg-muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
-
-    /* ---------- TESTIMONIALS ---------- */
-    .testimonial-section { background: #f9f9f9; padding: 8rem 0; border-bottom: 1px solid var(--border); }
-    .testimonial-slider { max-width: 800px; position: relative; }
-    .testimonial-slide { display: none; }
-    .testimonial-slide.active { display: block; animation: fadeIn 500ms var(--ease-out); }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .testimonial-quote {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      line-height: 1.3;
-      margin-bottom: 2rem;
-    }
-
-    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-    .testimonial-avatar {
-      width: 48px; height: 48px; border-radius: 50%; background: var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 1.1rem;
-    }
-
-    .testimonial-author-info strong { display: block; font-size: 0.95rem; }
-    .testimonial-author-info span { font-size: 0.85rem; color: var(--fg-muted); }
 
     /* ---------- CONTACT ---------- */
     .contact-section { padding: 8rem 0; }
@@ -438,23 +403,92 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--fg); /* Explicitly applied so Icons render correctly */
+      color: var(--fg); 
+      background: var(--bg-solid);
       transition: all var(--transition);
     }
-    .social-link:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+    .social-link:hover { background: var(--fg); color: var(--bg-solid); border-color: var(--fg); }
     .social-link svg { width: 20px; height: 20px; stroke: currentColor; }
 
     /* ---------- FOOTER ---------- */
     .site-footer { padding: 3rem 0; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--fg-muted); }
     .footer-inner { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
-    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { transition: color var(--transition); }
     .footer-links a:hover { color: var(--fg); }
+
+    /* ---------- COOKIE & MODAL RESTORED ---------- */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--bg-solid);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 -10px 30px rgba(44, 26, 18, 0.05);
+    }
+    .cookie-banner.visible { display: flex; }
+    .cookie-text { font-size: 0.9rem; color: var(--fg-muted); max-width: 800px; }
+    .cookie-text a { color: var(--fg); text-decoration: underline; }
+    
+    .cookie-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cookie-btn { padding: 0.6rem 1.5rem; font-size: 0.85rem; font-weight: 500; border-radius: 999px; min-height: 44px; }
+    .cookie-btn.accept { background: var(--fg); color: var(--bg-solid); }
+    .cookie-btn.reject { border: 1px solid var(--border); color: var(--fg-muted); background: transparent; }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(44, 26, 18, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    
+    .modal {
+      background: var(--bg-solid);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(44, 26, 18, 0.1);
+    }
+    .modal h2 { margin-bottom: 1.5rem; font-size: 2rem; }
+    .modal p { font-size: 0.95rem; color: var(--fg-muted); margin-bottom: 1rem; }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--fg-muted);
+      transition: background var(--transition);
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.05); color: var(--fg); }
 
     /* ---------- RESPONSIVE ---------- */
     @media (min-width: 768px) {
       .spec-grid { grid-template-columns: 1fr 1fr; column-gap: 4rem; }
       .about-grid { grid-template-columns: 0.8fr 1.2fr; }
       .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+      .cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
     }
 
     @media (min-width: 1024px) {
@@ -468,6 +502,8 @@
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
       .client-logo { width: 140px; height: 80px; }
+      .cookie-actions { flex-direction: column; }
+      .cookie-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -730,10 +766,35 @@
     <div class="container footer-inner">
       <p>&copy; 2026 Monika Voiceover. All rights reserved.</p>
       <div class="footer-links">
+        <a href="#" id="privacy-link">Privacy Notice</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      I use cookies to analyse site traffic and improve your experience. By clicking “Accept”, you consent to the use of cookies. Read my <a href="#" id="cookie-privacy-link">Privacy Notice</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn accept" id="accept-cookies">Accept</button>
+      <button class="cookie-btn reject" id="reject-cookies">Reject</button>
+    </div>
+  </div>
+
+  <!-- PRIVACY MODAL -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal" role="dialog" aria-labelledby="privacy-title">
+      <button class="modal-close" id="privacy-close" aria-label="Close privacy notice">
+        <i data-lucide="x"></i>
+      </button>
+      <h2 id="privacy-title">Privacy Notice</h2>
+      <p>This website does not collect personal information unless you voluntarily provide it via email. I use essential cookies to ensure the site functions correctly. Non-essential cookies for analytics are only set if you explicitly accept them.</p>
+      <p>If you have questions about how your data is handled, please contact <a href="mailto:info@monikavo.com" style="color:var(--fg);">info@monikavo.com</a>.</p>
+      <p><em>Last updated: October 2026</em></p>
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -779,6 +840,46 @@
           const content = row.innerHTML;
           row.innerHTML = content + content; // Double the content
         }
+      });
+
+      // ---------- COOKIE CONSENT ----------
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptCookies = document.getElementById('accept-cookies');
+      const rejectCookies = document.getElementById('reject-cookies');
+
+      if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.classList.add('visible');
+      }
+
+      const setConsent = (value) => {
+        localStorage.setItem('cookieConsent', value);
+        cookieBanner.classList.remove('visible');
+      };
+
+      acceptCookies.addEventListener('click', () => setConsent('accepted'));
+      rejectCookies.addEventListener('click', () => setConsent('rejected'));
+
+      // ---------- PRIVACY MODAL ----------
+      const privacyModal = document.getElementById('privacy-modal');
+      const privacyLink = document.getElementById('privacy-link');
+      const cookiePrivacyLink = document.getElementById('cookie-privacy-link');
+      const privacyClose = document.getElementById('privacy-close');
+
+      const openPrivacy = (e) => {
+        e.preventDefault();
+        privacyModal.classList.add('open');
+      };
+
+      privacyLink.addEventListener('click', openPrivacy);
+      cookiePrivacyLink.addEventListener('click', openPrivacy);
+
+      privacyClose.addEventListener('click', () => privacyModal.classList.remove('open'));
+      privacyModal.addEventListener('click', (e) => {
+        if (e.target === privacyModal) privacyModal.classList.remove('open');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') privacyModal.classList.remove('open');
       });
     });
   </script>
