@@ -6,31 +6,20 @@
   <title>Monika | Voiceover Artist</title>
   <meta name="description" content="Professional voiceover artist with 16+ years of experience. Warm, versatile voice for commercials, corporate, e-learning, and documentaries.">
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* ---------- RESET & TOKENS ---------- */
     :root {
-      /* Switched to a white/cool inviting palette */
-      --bg: #fafafa;
-      --fg: #111111;
-      --fg-muted: #555555;
-      --border: #eaeaea;
-      --accent: #222222;
-      --accent-hover: #000000;
+      --bg: #ffffff;
+      --fg: #000000;
+      --fg-muted: #666666;
+      --border: #e0e0e0;
+      --accent: #ff5500;
       
-      --font-display: 'Instrument Serif', Georgia, serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
+      /* Standard System Fonts */
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-      --transition: 300ms var(--ease-out);
-      
+      --ease: cubic-bezier(0.25, 1, 0.5, 1);
       --max-width: 1200px;
     }
 
@@ -39,11 +28,11 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     
     body {
-      font-family: var(--font-body);
+      font-family: var(--font-stack);
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.5;
-      font-size: 1rem;
+      line-height: 1.4;
+      font-size: 16px;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -59,98 +48,60 @@
       padding: 0 1.5rem;
     }
 
-    /* ---------- TYPOGRAPHY ---------- */
+    /* TYPOGRAPHY */
     h1, h2, h3 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+      font-weight: 500;
+      letter-spacing: -0.02em;
     }
 
-    h1 { font-size: clamp(3rem, 8vw, 6rem); }
-    h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
-    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    h1 { font-size: clamp(3rem, 10vw, 6.5rem); line-height: 1; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 2rem; }
+    h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+    p { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--fg-muted); max-width: 65ch; margin-bottom: 1.5rem; }
 
     .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      font-size: 0.875rem;
+      font-weight: 600;
       text-transform: uppercase;
-      color: var(--fg-muted);
-      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
       display: block;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--fg);
+      padding-bottom: 0.5rem;
+      max-width: max-content;
     }
 
-    /* ---------- BUTTONS ---------- */
+    /* BUTTONS & TAP TARGETS */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 48px;
-      padding: 0 1.5rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
+      min-height: 48px; /* Mobile tap target minimum */
+      padding: 0 2rem;
+      font-size: 1rem;
       font-weight: 500;
-      transition: all var(--transition);
-      position: relative;
-      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+      border: 1px solid var(--fg);
     }
 
-    .btn-primary {
-      background: var(--fg);
-      color: var(--bg);
-    }
-
-    .btn-primary:hover {
-      background: var(--fg-muted);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--fg);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--fg);
-      background: rgba(0,0,0,0.03);
-    }
-
-    /* Arrow Slide Animation */
-    .btn-arrow-wrapper {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      overflow: hidden;
-    }
+    .btn-primary { background: var(--fg); color: var(--bg); }
+    .btn-primary:hover { background: var(--bg); color: var(--fg); }
     
-    .btn-arrow-wrapper span {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    .btn-secondary { background: var(--bg); color: var(--fg); }
+    .btn-secondary:hover { background: var(--border); }
 
-    .btn-arrow-wrapper svg {
-      width: 16px;
-      height: 16px;
-      transition: transform var(--transition);
-    }
-
-    /* ---------- HEADER & NAV DOT ---------- */
+    /* HEADER */
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 1.5rem 0;
-      transition: all var(--transition);
-    }
-
-    .site-header.scrolled {
-      padding: 1rem 0;
-      background: rgba(250, 250, 250, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -158,53 +109,43 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 72px; /* Sufficient height for mobile tap targets */
     }
 
     .logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      z-index: 101;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
     }
 
-    .logo span {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-    }
-
+    /* NAVIGATION - HOVER DOT REPLACEMENT */
     .nav-links {
       display: none;
-      gap: 2rem;
-      align-items: center;
+      gap: 2.5rem;
     }
 
     .nav-links a {
-      font-size: 0.85rem;
-      color: var(--fg-muted);
-      transition: color var(--transition);
-      display: flex;
-      align-items: center;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
     }
 
-    .nav-links a:hover {
-      color: var(--fg);
-    }
-
-    /* Orange Dot Feature */
-    .orange-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: #ff6b00;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      margin-left: 6px;
-      box-shadow: 0 0 6px rgba(255, 107, 0, 0.5);
+      background-color: var(--accent);
+      transition: transform 0.2s var(--ease);
+    }
+
+    .nav-links a:hover::after {
+      transform: translateX(-50%) scale(1);
     }
 
     .nav-toggle {
@@ -213,126 +154,63 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      z-index: 101;
-      border-radius: 50%;
-      transition: background var(--transition);
+      margin-right: -12px;
     }
 
-    .nav-toggle:hover { background: rgba(0,0,0,0.05); }
-
-    /* Mobile Menu */
+    /* MOBILE MENU */
     .mobile-menu {
       position: fixed;
       inset: 0;
       background: var(--bg);
-      z-index: 100;
+      z-index: 99;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition);
+      padding: 100px 1.5rem 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.4s var(--ease);
     }
 
     .mobile-menu.open {
-      opacity: 1;
-      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .mobile-menu a {
-      font-family: var(--font-display);
       font-size: 2.5rem;
-      transition: color var(--transition);
-      display: flex;
-      align-items: center;
-    }
-    
-    .mobile-menu a:hover { color: var(--fg-muted); }
-
-    /* ---------- HERO ---------- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 80vw;
-      background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: var(--border);
-      font-size: 0.8rem;
       font-weight: 500;
-      color: var(--fg-muted);
-      margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      display: block;
     }
 
-    .hero h1 {
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--fg-muted);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--fg-muted);
-      max-width: 600px;
-      margin: 0 auto 3rem;
+    /* HERO */
+    .hero {
+      padding: 180px 0 100px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
-      justify-content: center;
+      margin-top: 2rem;
     }
 
-    /* ---------- MARQUEE (CLIENTS) ---------- */
+    /* MARQUEE */
     .marquee-section {
       padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
-      position: relative;
+      background: #f9f9f9;
     }
 
     .marquee-wrapper {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      transform: rotate(-2deg) scale(1.05);
-      margin: 4rem 0;
     }
 
     .marquee-row {
@@ -341,13 +219,8 @@
       animation: scroll 60s linear infinite;
     }
 
-    .marquee-row.reverse {
-      animation-direction: reverse;
-    }
-
-    .marquee-row:hover {
-      animation-play-state: paused;
-    }
+    .marquee-row.reverse { animation-direction: reverse; }
+    .marquee-row:hover { animation-play-state: paused; }
 
     @keyframes scroll {
       from { transform: translateX(0); }
@@ -356,643 +229,322 @@
 
     .client-logo {
       flex-shrink: 0;
-      width: 180px;
-      height: 100px;
+      width: 160px;
+      height: 90px;
       margin-right: 1.5rem;
-      background: #ffffff;
+      background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
       position: relative;
-      cursor: pointer;
-      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-      overflow: hidden;
+      transition: border-color 0.2s;
     }
 
     .client-logo img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain; /* Ensures logo isn't cut off */
-      opacity: 0.85; /* Restored full color visibility */
-      transition: all var(--transition);
-    }
-
-    /* Hover Affordance */
-    .client-logo::after {
-      content: 'Play Sample';
-      position: absolute;
-      inset: 0;
-      background: rgba(5, 5, 5, 0.9);
-      color: #ffffff;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity var(--transition);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .client-logo:hover {
-      transform: scale(1.05);
-      border-color: #cccccc;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      z-index: 10;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.2s var(--ease);
     }
 
     .client-logo:hover img {
+      filter: grayscale(0%);
       opacity: 1;
     }
 
-    .client-logo:hover::after {
-      opacity: 1;
+    .client-logo:hover {
+      border-color: var(--fg);
     }
 
-    /* Missing Link State */
-    .client-logo.missing {
-      cursor: default;
-    }
-    .client-logo.missing:hover {
-      transform: none;
-      border-color: var(--border);
-      box-shadow: none;
-    }
-    .client-logo.missing:hover img {
-      opacity: 0.85;
-    }
-    .client-logo.missing::after {
-      content: 'Demo not provided';
-      background: rgba(5, 5, 5, 0.95);
-      font-size: 0.75rem;
-    }
-    .client-logo.missing:hover::after {
-      opacity: 1;
-    }
+    .client-logo.missing { cursor: default; pointer-events: none; }
 
-    /* ---------- SECTIONS ---------- */
-    .section {
-      padding: 6rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    /* SECTIONS */
+    .section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
 
-    .section-header {
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      margin-top: 0.5rem;
-    }
-
-    /* ---------- SPECIALISATIONS ---------- */
-    .spec-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      border-top: 1px solid var(--border);
+    /* SPECIALISATIONS */
+    .spec-list {
+      display: flex;
+      flex-direction: column;
     }
 
     .spec-item {
       display: grid;
-      grid-template-columns: 3rem 1fr;
+      grid-template-columns: 1fr;
       gap: 1rem;
       padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: padding var(--transition), background var(--transition);
+      border-top: 1px solid var(--border);
     }
 
-    .spec-item:hover {
-      padding-left: 1rem;
-      background: #f5f5f5;
-    }
+    .spec-item h3 { margin-bottom: 0.5rem; }
+    .spec-item p { margin-bottom: 0; font-size: 1rem; }
 
-    .spec-number {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--fg-muted);
-    }
-
-    .spec-item h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-    }
-
-    .spec-item p {
-      color: var(--fg-muted);
-      font-size: 0.95rem;
-      max-width: 60ch;
-    }
-
-    /* ---------- ABOUT ---------- */
-    .about-grid {
+    /* ABOUT */
+    .about-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-image {
-      /* Removed fixed aspect ratio to prevent clipping */
-      background: transparent; 
-      border-radius: 12px;
-      overflow: hidden;
-      max-width: 400px;
+      gap: 3rem;
     }
 
     .about-image img {
       width: 100%;
-      height: auto;
-      object-fit: contain; /* Ensures the picture is never cut off */
-      border-radius: 12px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      background: var(--border);
     }
 
-    .about-text h2 {
-      margin-bottom: 1.5rem;
+    /* TESTIMONIALS */
+    .testimonial {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
     }
-
-    .about-text p {
-      color: var(--fg-muted);
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
-
-    /* ---------- TESTIMONIALS ---------- */
-    .testimonial-section {
-      background: #f9f9f9;
-      padding: 8rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .testimonial-slider {
-      max-width: 800px;
-      position: relative;
-    }
-
-    .testimonial-slide {
-      display: none;
-    }
-
-    .testimonial-slide.active {
-      display: block;
-      animation: fadeIn 500ms var(--ease-out);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .testimonial-quote {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
+    
+    .testimonial p {
+      font-size: clamp(1.25rem, 3vw, 2rem);
       line-height: 1.3;
+      color: var(--fg);
       margin-bottom: 2rem;
     }
 
     .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-    }
-
-    .testimonial-author-info strong {
-      display: block;
-      font-size: 0.95rem;
-    }
-
-    .testimonial-author-info span {
-      font-size: 0.85rem;
-      color: var(--fg-muted);
-    }
-
-    .testimonial-controls {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--border);
-      transition: background var(--transition);
-      min-width: 44px;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .testimonial-dot::after {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #dddddd;
-      transition: background var(--transition);
-    }
-
-    .testimonial-dot.active::after {
-      background: var(--fg);
-    }
-
-    /* ---------- CONTACT ---------- */
-    .contact-section {
-      padding: 8rem 0;
-    }
-
-    .contact-inner {
-      max-width: 800px;
-    }
-
-    .contact-inner h2 {
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-inner p {
-      color: var(--fg-muted);
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
+    /* CONTACT */
     .contact-email {
       display: inline-block;
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 4rem);
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 0.5rem;
-      transition: border-color var(--transition);
+      font-size: clamp(2rem, 6vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--fg);
+      padding-bottom: 0.25rem;
+      margin-bottom: 3rem;
+      word-break: break-all;
     }
 
-    .contact-email:hover {
-      border-color: var(--fg);
-    }
-
-    .social-row {
-      display: flex;
-      gap: 1rem;
-      margin-top: 4rem;
-    }
-
-    .social-link {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-muted);
-      transition: all var(--transition);
-    }
-
-    .social-link:hover {
-      background: var(--fg);
-      color: var(--bg);
-      border-color: var(--fg);
-    }
-
-    /* ---------- FOOTER ---------- */
-    .site-footer {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--fg-muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-links {
+    .social-links {
       display: flex;
       gap: 1.5rem;
-    }
-
-    .footer-links a:hover {
-      color: var(--fg);
-    }
-
-    /* ---------- COOKIE & MODAL ---------- */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      padding: 1.5rem;
-      z-index: 200;
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-    }
-
-    .cookie-banner.visible {
-      display: flex;
-    }
-
-    .cookie-text {
-      font-size: 0.9rem;
-      color: var(--fg-muted);
-      max-width: 800px;
-    }
-
-    .cookie-text a {
-      color: var(--fg);
-      text-decoration: underline;
-    }
-
-    .cookie-actions {
-      display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .cookie-btn {
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-radius: 999px;
-      min-height: 44px;
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .cookie-btn.accept {
+    .social-links a:hover {
       background: var(--fg);
       color: var(--bg);
     }
 
-    .cookie-btn.reject {
-      border: 1px solid var(--border);
-      color: var(--fg-muted);
-      background: transparent;
-    }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(4px);
-      z-index: 300;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-
-    .modal-overlay.open { display: flex; }
-
-    .modal {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      max-width: 600px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      position: relative;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-    .modal h2 { margin-bottom: 1.5rem; font-size: 2rem; }
-    .modal p { font-size: 0.95rem; color: var(--fg-muted); margin-bottom: 1rem; }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 44px;
-      height: 44px;
+    /* FOOTER */
+    .footer {
+      padding: 2rem 0;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.875rem;
       color: var(--fg-muted);
-      transition: background var(--transition);
     }
 
-    .modal-close:hover { background: rgba(0,0,0,0.05); color: var(--fg); }
+    /* 375px MOBILE OPTIMIZATIONS (Single Column, Large Tap Targets) */
+    @media (max-width: 767px) {
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn { width: 100%; }
+      
+      .client-logo { width: 120px; height: 80px; padding: 0.5rem; margin-right: 1rem; }
+      
+      .section { padding: 5rem 0; }
+      
+      .footer { align-items: center; text-align: center; }
+    }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (min-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .spec-grid { grid-template-columns: 1fr 1fr; column-gap: 4rem; }
-      .about-grid { grid-template-columns: 0.8fr 1.2fr; }
-      .cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
-      .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
-    }
-
-    @media (min-width: 1024px) {
       .nav-links { display: flex; }
       .nav-toggle { display: none; }
-    }
-
-    @media (max-width: 767px) {
-      .hero { padding-top: 100px; text-align: left; }
-      .hero-content { margin: 0; text-align: left; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .client-logo { width: 140px; height: 80px; }
-      .cookie-actions { flex-direction: column; }
-      .cookie-btn { width: 100%; text-align: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal { opacity: 1; transform: none; }
+      .mobile-menu { display: none; }
+      
+      .spec-item { grid-template-columns: 300px 1fr; align-items: baseline; }
+      .about-layout { grid-template-columns: 1fr 1fr; align-items: center; }
+      
+      .footer { flex-direction: row; justify-content: space-between; }
     }
   </style>
 </head>
 <body>
 
-  <a href="#main" class="sr-only">Skip to content</a>
-
-  <!-- HEADER -->
-  <header class="site-header" id="header">
+  <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo">Monika <span>Voiceover</span></a>
+      <a href="#" class="logo">Monika.</a>
       
-      <nav class="nav-links" aria-label="Main">
+      <nav class="nav-links">
         <a href="#work">Work</a>
         <a href="#about">About</a>
         <a href="#clients">Clients</a>
-        <!-- Orange dot added here on the contact tab! -->
-        <a href="#contact">Contact <span class="orange-dot"></span></a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
         <i data-lucide="menu"></i>
       </button>
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
-    <button class="nav-toggle" id="mobile-close" style="position: absolute; top: 1.5rem; right: 1.5rem;" aria-label="Close menu">
-      <i data-lucide="x"></i>
-    </button>
     <a href="#work" class="mobile-link">Work</a>
     <a href="#about" class="mobile-link">About</a>
     <a href="#clients" class="mobile-link">Clients</a>
-    <a href="#contact" class="mobile-link">Contact <span class="orange-dot"></span></a>
+    <a href="#contact" class="mobile-link">Contact</a>
   </div>
 
-  <main id="main">
-
+  <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content reveal">
-          <div class="hero-badge">
-            <i data-lucide="mic" style="width: 14px; height: 14px;"></i>
-            Voiceover Artist & Narrator
-          </div>
-          <h1>A voice that <em>connects.</em></h1>
-          <p>With over 16 years of experience, I help brands find their voice. Warm, versatile, and delivered with precision from my studio in Dubai.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              <span class="btn-arrow-wrapper">
-                <span>Let's work together</span>
-                <i data-lucide="chevron-right"></i>
-              </span>
-            </a>
-            <a href="#clients" class="btn btn-outline">
-              <span class="btn-arrow-wrapper">
-                <span>Listen to demos</span>
-                <i data-lucide="chevron-down"></i>
-              </span>
-            </a>
-          </div>
-        </div>
+    <section class="hero container">
+      <span class="eyebrow">Voiceover Artist & Narrator</span>
+      <h1>A voice that connects.</h1>
+      <p>Over 16 years of experience helping brands find their voice. Warm, versatile, and delivered with precision from my studio in Dubai.</p>
+      
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Let's work together</a>
+        <a href="#clients" class="btn btn-secondary">Listen to demos</a>
       </div>
     </section>
 
-    <!-- MARQUEE (CLIENTS) -->
+    <!-- MARQUEE -->
     <section class="marquee-section" id="clients">
-      <div class="marquee-wrapper reveal">
+      <div class="marquee-wrapper">
         <!-- Row 1 -->
         <div class="marquee-row" id="row-1">
-          <a href="https://www.youtube.com/watch?v=54FlJUqxLEA&list=PL2QKeU7UhcBMtD_ZLiYdpxJW-rIIUXCKl" target="_blank" class="client-logo"><img src="images/MD.png" alt="Mai Dubai"></a>
-          <a href="https://www.youtube.com/watch?v=FX6CSuhXkHk&list=PL2QKeU7UhcBM7JN_8i7IER4q0q3jdOFf6" target="_blank" class="client-logo"><img src="images/osra.png" alt="Al Osra Sugar"></a>
-          <a href="https://www.youtube.com/watch?v=bRUXOjlVSzc" target="_blank" class="client-logo"><img src="images/wb.jpeg" alt="Warner Brothers"></a>
-          <a href="https://www.youtube.com/watch?v=rkSbqxK4pYg" target="_blank" class="client-logo"><img src="images/Kinder.svg" alt="Kinder Joy"></a>
-          <a href="https://www.youtube.com/watch?v=PNcGuRuPtLc" target="_blank" class="client-logo"><img src="images/mac.svg" alt="McDonald’s"></a>
-          <a href="https://www.youtube.com/watch?v=TUX2A_A0gcI" target="_blank" class="client-logo"><img src="images/fly.svg" alt="Fly Dubai"></a>
-          <div class="client-logo missing"><img src="images/peugeot.png" alt="Peugeot"></div>
-          <div class="client-logo missing"><img src="images/head.svg" alt="Head & Shoulders"></div>
-          <a href="https://youtu.be/YYLPK4axhgs" target="_blank" class="client-logo"><img src="images/RTA.png" alt="RTA Dubai"></a>
-          <a href="https://www.youtube.com/watch?v=10OP-RdjNFQ&list=PL2QKeU7UhcBP9sl2JuWD06PrKwIxUKezn" target="_blank" class="client-logo"><img src="images/IKEA.svg" alt="IKEA"></a>
+          <a href="https://www.youtube.com/watch?v=54FlJUqxLEA" target="_blank" class="client-logo"><img src="images/MD.png" alt="MAI DUBAI"></a>
+          <a href="https://www.youtube.com/watch?v=FX6CSuhXkHk" target="_blank" class="client-logo"><img src="images/osra.png" alt="AL OSRA SUGAR"></a>
+          <a href="https://www.youtube.com/watch?v=bRUXOjlVSzc" target="_blank" class="client-logo"><img src="images/wb.jpeg" alt="WARNER BROTHERS"></a>
+          <a href="https://www.youtube.com/watch?v=rkSbqxK4pYg" target="_blank" class="client-logo"><img src="images/Kinder.svg" alt="KINDER JOY"></a>
+          <a href="https://www.youtube.com/watch?v=PNcGuRuPtLc" target="_blank" class="client-logo"><img src="images/mac.svg" alt="MCDONALD'S"></a>
+          <a href="https://www.youtube.com/watch?v=TUX2A_A0gcI" target="_blank" class="client-logo"><img src="images/fly.svg" alt="FLY DUBAI"></a>
+          <div class="client-logo missing"><img src="images/peugeot.png" alt="PEUGEOT"></div>
+          <div class="client-logo missing"><img src="images/head.svg" alt="HEAD & SHOULDERS"></div>
+          <a href="https://youtu.be/YYLPK4axhgs" target="_blank" class="client-logo"><img src="images/RTA.png" alt="RTA DUBAI"></a>
+          <a href="https://www.youtube.com/watch?v=10OP-RdjNFQ" target="_blank" class="client-logo"><img src="images/IKEA.svg" alt="IKEA"></a>
           <a href="https://on.soundcloud.com/3GWPa5SuXQxbZL8wc0" target="_blank" class="client-logo"><img src="images/DAC.webp" alt="DAC"></a>
-          <a href="https://youtu.be/mYNAg1p0pjQ?feature=shared" target="_blank" class="client-logo"><img src="images/rl.png" alt="Red Label"></a>
-          <a href="https://on.soundcloud.com/7zuItpllh2G1XFDFsU" target="_blank" class="client-logo"><img src="images/dsf.png" alt="Dubai Shopping Festival"></a>
-          <div class="client-logo missing"><img src="images/renault.svg" alt="Renault"></div>
+          <a href="https://youtu.be/mYNAg1p0pjQ" target="_blank" class="client-logo"><img src="images/rl.png" alt="RED LABEL"></a>
+          <a href="https://on.soundcloud.com/7zuItpllh2G1XFDFsU" target="_blank" class="client-logo"><img src="images/dsf.png" alt="DSF"></a>
+          <div class="client-logo missing"><img src="images/renault.svg" alt="RENAULT"></div>
+          <a href="https://youtu.be/J6pwjsGfU2M" target="_blank" class="client-logo"><img src="images/always.png" alt="ALWAYS"></a>
+          <a href="https://youtu.be/RIdBTMmXNuo" target="_blank" class="client-logo"><img src="images/johnsons.svg" alt="JOHNSON'S"></a>
+          <div class="client-logo missing"><img src="images/whisper.png" alt="WHISPER"></div>
+          <a href="https://soundcloud.com/monikavo/kfc_gptwister" target="_blank" class="client-logo"><img src="images/kfc.svg" alt="KFC"></a>
+          <div class="client-logo missing"><img src="images/ukvi.jpg" alt="UKVI"></div>
+          <a href="https://youtu.be/d2qrdgeeZkM" target="_blank" class="client-logo"><img src="images/india_gate_rice.jpg" alt="INDIA GATE"></a>
+          <a href="https://youtu.be/w1rrbLHj6Dg" target="_blank" class="client-logo"><img src="images/pediasure.png" alt="PEDIASURE"></a>
+          <a href="https://soundcloud.com/monikavo/monika_clorox" target="_blank" class="client-logo"><img src="images/clorox.png" alt="CLOROX"></a>
+          <div class="client-logo missing"><img src="images/puck.png" alt="PUCK"></div>
+          <a href="https://youtu.be/99I37tmemAA" target="_blank" class="client-logo"><img src="images/oreo.svg" alt="OREO"></a>
+          <a href="https://on.soundcloud.com/Xu0p55688dgdltxO7H" target="_blank" class="client-logo"><img src="images/garnier.png" alt="GARNIER"></a>
+          <a href="https://youtu.be/iejDpy3MtqM" target="_blank" class="client-logo"><img src="images/fair_and_lovely.png" alt="FAIR & LOVELY"></a>
+          <a href="https://on.soundcloud.com/UUJiJbZqpPBx5v70Gj" target="_blank" class="client-logo"><img src="images/vaseline.png" alt="VASELINE"></a>
         </div>
         
         <!-- Row 2 -->
         <div class="marquee-row reverse" id="row-2">
-          <a href="https://youtu.be/J6pwjsGfU2M" target="_blank" class="client-logo"><img src="images/always.png" alt="Always"></a>
-          <a href="https://youtu.be/RIdBTMmXNuo?feature=shared" target="_blank" class="client-logo"><img src="images/johnsons.svg" alt="Johnson’s"></a>
-          <div class="client-logo missing"><img src="images/whisper.png" alt="Whisper"></div>
-          <a href="https://soundcloud.com/monikavo/kfc_gptwister_15s_hin-female_n?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=f825f19621d34a55a1dfab8ef5277a88" target="_blank" class="client-logo"><img src="images/kfc.svg" alt="KFC"></a>
-          <div class="client-logo missing"><img src="images/ukvi.jpg" alt="UKVI"></div>
-          <a href="https://youtu.be/d2qrdgeeZkM?feature=shared" target="_blank" class="client-logo"><img src="images/india_gate_rice.jpg" alt="India Gate"></a>
-          <a href="https://youtu.be/w1rrbLHj6Dg?" target="_blank" class="client-logo"><img src="images/pediasure.png" alt="Pediasure"></a>
-          <a href="https://soundcloud.com/monikavo/monika_clorox_hindi-2009?si=b1ce70d1d9a54e12a1274351afb49ef8&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="client-logo"><img src="images/clorox.png" alt="Clorox"></a>
-          <div class="client-logo missing"><img src="images/puck.png" alt="Puck"></div>
-          <a href="https://youtu.be/99I37tmemAA?feature=shared" target="_blank" class="client-logo"><img src="images/oreo.svg" alt="Oreo"></a>
-          <a href="https://on.soundcloud.com/Xu0p55688dgdltxO7H" target="_blank" class="client-logo"><img src="images/garnier.png" alt="Garnier"></a>
-          <a href="https://youtu.be/iejDpy3MtqM?feature=shared" target="_blank" class="client-logo"><img src="images/fair_and_lovely.png" alt="Fair & Lovely"></a>
-          <a href="https://on.soundcloud.com/UUJiJbZqpPBx5v70Gj" target="_blank" class="client-logo"><img src="images/vaseline.png" alt="Vaseline"></a>
+          <a href="https://www.youtube.com/playlist" target="_blank" class="client-logo"><img src="images/rainbow_milk.webp" alt="RAINBOW MILK"></a>
+          <a href="https://youtu.be/Zk5QecYIfp0" target="_blank" class="client-logo"><img src="images/damas.png" alt="DAMAS"></a>
+          <a href="https://youtu.be/VRBtJX46c5s" target="_blank" class="client-logo"><img src="images/cafu.jpg" alt="CAFU"></a>
+          <div class="client-logo missing"><img src="images/careem.png" alt="CAREEM"></div>
+          <a href="https://youtu.be/qoSxnOyX-Q4" target="_blank" class="client-logo"><img src="images/jazeera.png" alt="AL JAZIRA"></a>
+          <a href="https://on.soundcloud.com/o8XB29ayVgSlJlWS5V" target="_blank" class="client-logo"><img src="images/kadak_fm.png" alt="KADAK FM"></a>
+          <a href="https://www.youtube.com/watch?v=M1dPSbWyrU8" target="_blank" class="client-logo"><img src="images/loreal.png" alt="L’ORÉAL"></a>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/etisalat.png" alt="e&"></a>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/du.png" alt="DU"></a>
+          <div class="client-logo missing"><img src="images/dole.png" alt="DOLE"></div>
+          <a href="https://youtu.be/e6yxte6tG5I" target="_blank" class="client-logo"><img src="images/veet.png" alt="VEET"></a>
+          <div class="client-logo missing"><img src="images/vodafone.png" alt="VODAFONE"></div>
+          <div class="client-logo missing"><img src="images/nestle.png" alt="NESTLE"></div>
+          <div class="client-logo missing"><img src="images/pantene.jpg" alt="PANTENE"></div>
+          <a href="https://youtu.be/CqljTlV8gXc" target="_blank" class="client-logo"><img src="images/panasonic.png" alt="PANASONIC"></a>
+          <div class="client-logo missing"><img src="images/sunsilk.png" alt="SUNSILK"></div>
+          <a href="https://youtu.be/kD8LzV5R0qw" target="_blank" class="client-logo"><img src="images/tang.png" alt="TANG"></a>
+          <a href="https://youtu.be/UA4wTHLmGck" target="_blank" class="client-logo"><img src="images/nestle_professional.png" alt="NESTLE PRO"></a>
+          <div class="client-logo missing"><img src="images/carrefour.png" alt="CARREFOUR"></div>
+          <a href="https://youtu.be/9td8QmIQ9V0" target="_blank" class="client-logo"><img src="images/scholl.png" alt="SCHOLL"></a>
+          <div class="client-logo missing"><img src="images/afia_oil.jpg" alt="AFIA OIL"></div>
+          <a href="https://www.youtube.com/watch?v=eWXAWX3lktc" target="_blank" class="client-logo"><img src="images/pampers.png" alt="PAMPERS"></a>
+          <a href="https://youtu.be/c3iHS-mCFqU" target="_blank" class="client-logo"><img src="images/visa.png" alt="VISA"></a>
+          <div class="client-logo missing"><img src="images/marmum_dairy.png" alt="MARMUM"></div>
+          <a href="https://www.youtube.com/watch?v=xzNFo1THZQI" target="_blank" class="client-logo"><img src="images/dettol.png" alt="DETTOL"></a>
+          <div class="client-logo missing"><img src="images/noor.jpeg" alt="NOOR OIL"></div>
+          <a href="https://on.soundcloud.com/bx5lBNaHttut6Ah8Vs" target="_blank" class="client-logo"><img src="images/BTAD.webp" alt="BIG TICKET"></a>
         </div>
 
         <!-- Row 3 -->
         <div class="marquee-row" id="row-3">
-          <a href="https://www.youtube.com/playlist?list=PL2QKeU7UhcBP4vs2y_HYeJ_Eo4PBHJDnQ" target="_blank" class="client-logo"><img src="images/rainbow_milk.webp" alt="Rainbow Milk"></a>
-          <a href="https://youtu.be/Zk5QecYIfp0?si=TBGAfzUaotOhu9Qt" target="_blank" class="client-logo"><img src="images/damas.png" alt="Damas Jewellery"></a>
-          <a href="https://youtu.be/VRBtJX46c5s?feature=shared" target="_blank" class="client-logo"><img src="images/cafu.jpg" alt="Cafu"></a>
-          <div class="client-logo missing"><img src="images/careem.png" alt="Careem"></div>
-          <a href="https://youtu.be/qoSxnOyX-Q4?feature=shared" target="_blank" class="client-logo"><img src="images/jazeera.png" alt="Al Jazeera"></a>
-          <a href="https://on.soundcloud.com/o8XB29ayVgSlJlWS5V" target="_blank" class="client-logo"><img src="images/kadak_fm.png" alt="Kadak FM"></a>
-          <a href="https://www.youtube.com/watch?v=M1dPSbWyrU8&list=PL2QKeU7UhcBO0vQK8YV2VHZrhDeP7BCKv" target="_blank" class="client-logo"><img src="images/loreal.png" alt="L’Oréal"></a>
-          <a href="https://soundcloud.com/monikavo/monika-2013-e-wasel-hindi?si=75999590aa4c4d0391180f92b2dd6b36&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="client-logo"><img src="images/etisalat.png" alt="e&"></a>
-          <a href="https://soundcloud.com/monikavo/monika-du-2013?si=27ab0b6cf36c4ecd958dcb5197f93ef3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="client-logo"><img src="images/du.png" alt="Du"></a>
-          <div class="client-logo missing"><img src="images/dole.png" alt="Dole"></div>
-          <a href="https://youtu.be/e6yxte6tG5I?feature=shared" target="_blank" class="client-logo"><img src="images/veet.png" alt="Veet"></a>
-          <div class="client-logo missing"><img src="images/vodafone.png" alt="Vodafone"></div>
-          <div class="client-logo missing"><img src="images/nestle.png" alt="Nestle"></div>
+          <a href="https://www.youtube.com/watch?v=F6FbMxEm1-Y" target="_blank" class="client-logo"><img src="images/galaxy.svg" alt="GALAXY"></a>
+          <div class="client-logo missing"><img src="images/downy.png" alt="DOWNY"></div>
+          <a href="https://on.soundcloud.com/k2YCkEKEBcLFiFTuvC" target="_blank" class="client-logo"><img src="images/air_wick.png" alt="AIR WICK"></a>
+          <a href="https://youtu.be/WCrTVvxvztg" target="_blank" class="client-logo"><img src="images/lipton.jpeg" alt="LIPTON"></a>
+          <div class="client-logo missing"><img src="images/najm.png" alt="NAJM"></div>
+          <div class="client-logo missing"><img src="images/deem.png" alt="DEEM BANK"></div>
+          <a href="https://on.soundcloud.com/OrsnrH9iLf3ec6vzv7" target="_blank" class="client-logo"><img src="images/adib.jpg" alt="ADIB"></a>
+          <a href="https://on.soundcloud.com/gDbwFnHkeLVIZx33Yv" target="_blank" class="client-logo"><img src="images/rakbank.png" alt="RAKBANK"></a>
+          <a href="https://on.soundcloud.com/bL1aFOT5s6rgeK3YPA" target="_blank" class="client-logo"><img src="images/citibank.png" alt="CITIBANK"></a>
+          <div class="client-logo missing"><img src="images/mashreq_bank.png" alt="MASHREQ"></div>
+          <div class="client-logo missing"><img src="images/mashreq_neo.png" alt="MASHREQ NEO"></div>
+          <div class="client-logo missing"><img src="images/mashreq_gold.png" alt="MASHREQ GOLD"></div>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/al_rawabi_dairy.jpeg" alt="AL RAWABI"></a>
+          <a href="https://on.soundcloud.com/RPi4tM6PSa3uiEQQzm" target="_blank" class="client-logo"><img src="images/leaseplan.png" alt="LEASEPLAN"></a>
+          <a href="https://on.soundcloud.com/oPfvrODocUJR6QmQ3G" target="_blank" class="client-logo"><img src="images/toyota.jpg" alt="TOYOTA"></a>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/galleria.png" alt="GALLERIA"></a>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/JAV.png" alt="JEBEL ALI"></a>
+          <a href="https://on.soundcloud.com/WTYAkeXJ11XyYiRnr5" target="_blank" class="client-logo"><img src="images/SSS.jpeg" alt="SUN & SAND"></a>
+          <div class="client-logo missing"><img src="images/MGD.jpeg" alt="MALABAR"></div>
+          <a href="https://youtu.be/nbANPkmILmg" target="_blank" class="client-logo"><img src="images/DCT.svg" alt="DCT ABU DHABI"></a>
+          <div class="client-logo missing"><img src="images/mansam.png" alt="MANSAM"></div>
+          <a href="https://youtu.be/tJgODfKcLi4" target="_blank" class="client-logo"><img src="images/himalaya.webp" alt="HIMALAYA"></a>
+          <a href="https://youtu.be/QVSijsaYki4" target="_blank" class="client-logo"><img src="images/sadia.svg" alt="SADIA"></a>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/BAS1.png" alt="BAB AL SHAMS"></a>
+          <a href="https://youtu.be/aS7iAFg95F8" target="_blank" class="client-logo"><img src="images/dha.png" alt="DHA"></a>
+          <div class="client-logo missing"><img src="images/sobha.png" alt="SOBHA"></div>
+          <a href="https://soundcloud.com/monikavo" target="_blank" class="client-logo"><img src="images/bl.png" alt="BABY LIDO"></a>
         </div>
       </div>
     </section>
 
-    <!-- SPECIALISATIONS -->
+    <!-- WORK -->
     <section class="section" id="work">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Specialisations</span>
-          <h2>What I do</h2>
-        </div>
-        <div class="spec-grid">
-          <div class="spec-item reveal">
-            <span class="spec-number">01</span>
-            <div>
-              <h3>Commercial</h3>
-              <p>Engaging voiceovers for TV and radio commercials that cut through the noise.</p>
-            </div>
+        <h2>Specialisations</h2>
+        <div class="spec-list">
+          <div class="spec-item">
+            <h3>Commercial</h3>
+            <p>Engaging voiceovers for TV and radio commercials that cut through the noise and command attention.</p>
           </div>
-          <div class="spec-item reveal">
-            <span class="spec-number">02</span>
-            <div>
-              <h3>Corporate</h3>
-              <p>Professional narration for presentations, IVR, on-hold messages, and training.</p>
-            </div>
+          <div class="spec-item">
+            <h3>Corporate</h3>
+            <p>Professional narration for presentations, IVR, on-hold messages, and internal communications.</p>
           </div>
-          <div class="spec-item reveal">
-            <span class="spec-number">03</span>
-            <div>
-              <h3>E-Learning</h3>
-              <p>Clear, effective narration for manuals, courses, and instructional content.</p>
-            </div>
+          <div class="spec-item">
+            <h3>E-Learning</h3>
+            <p>Clear, effective narration designed for technical manuals, courses, and educational content.</p>
           </div>
-          <div class="spec-item reveal">
-            <span class="spec-number">04</span>
-            <div>
-              <h3>Audiobooks</h3>
-              <p>Expressive storytelling that keeps listeners engaged from chapter one.</p>
-            </div>
+          <div class="spec-item">
+            <h3>Audiobooks</h3>
+            <p>Expressive storytelling that keeps listeners fully engaged from chapter one to the final page.</p>
           </div>
-          <div class="spec-item reveal">
-            <span class="spec-number">05</span>
-            <div>
-              <h3>Documentaries</h3>
-              <p>Compelling narration for factual and documentary content.</p>
-            </div>
+          <div class="spec-item">
+            <h3>Documentaries</h3>
+            <p>Compelling and authoritative narration for factual programming and documentary content.</p>
           </div>
         </div>
       </div>
@@ -1000,262 +552,100 @@
 
     <!-- ABOUT -->
     <section class="section" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-image reveal">
-            <img src="images/About.jpg" alt="Monika, voiceover artist" loading="lazy">
-          </div>
-          <div class="about-text reveal">
-            <span class="eyebrow">About</span>
-            <h2>A voice that stands out</h2>
-            <p>I’ve voiced for over 55 multinational brands across radio, TV, IVR, corporate video, audiobooks, and documentaries. My voice is warm and versatile — able to shift from a mother’s voice to a doctor, a trainer, a friend, or a no-nonsense professional.</p>
-            <p>Based in Dubai, I offer professional voiceover services in English, Hindi, and Urdu. My journey began at age 10 when a newspaper article about voiceover artists planted the seed. I landed my first job in 2009 and have loved every moment since.</p>
-            <p class="about-signature" style="font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--fg-muted); margin-top: 2rem;">— Monika</p>
-          </div>
+      <div class="container about-layout">
+        <div class="about-text">
+          <span class="eyebrow">About</span>
+          <h2>A voice that stands out.</h2>
+          <p>I’ve voiced for over 55 multinational brands across radio, TV, IVR, corporate video, audiobooks, and documentaries. My voice is warm and versatile — able to shift seamlessly from a mother’s voice to a doctor, a trainer, a friend, or a no-nonsense professional.</p>
+          <p>Based in Dubai, I offer professional voiceover services in English, Hindi, and Urdu. My journey began at age 10 when a newspaper article about voiceover artists planted the seed. I landed my first job in 2009 and have loved every moment since.</p>
+        </div>
+        <div class="about-image">
+          <img src="images/About.jpg" alt="Monika, voiceover artist" loading="lazy">
         </div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="testimonial-section" id="testimonials">
+    <section class="section" id="testimonials">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Testimonials</span>
-          <h2>What clients say</h2>
+        <span class="eyebrow">Testimonials</span>
+        
+        <div class="testimonial">
+          <p>“Monika is a highly professional and talented VO artist. She delivers high-quality recordings, is flexible with project needs, and always makes the process smooth and enjoyable.”</p>
+          <div class="testimonial-author">Yumna Boustani — Montage Production, Dubai</div>
         </div>
-        <div class="testimonial-slider reveal">
-          <div class="testimonial-slide active">
-            <p class="testimonial-quote">“Monika is a highly professional and talented VO artist. She delivers high-quality recordings, is flexible with project needs, and always makes the process smooth and enjoyable.”</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">YB</div>
-              <div class="testimonial-author-info">
-                <strong>Yumna Boustani</strong>
-                <span>Montage Production, Dubai</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <p class="testimonial-quote">“She has an exceptional ability to adapt her tone and style to match the mood and message. We would highly recommend her to anyone looking for a professional voiceover artist.”</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">GK</div>
-              <div class="testimonial-author-info">
-                <strong>Ghada Kharsa</strong>
-                <span>Mindloop Studios, Dubai</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <p class="testimonial-quote">“I’ve worked with Monika several times, and she’s always delivered top-quality voiceovers. Reliable, consistent, and really easy to work with.”</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">BK</div>
-              <div class="testimonial-author-info">
-                <strong>Bilal Kebbe</strong>
-                <span>Biloma Productions, Dubai</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-controls" role="tablist">
-            <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
-            <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
-            <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
-          </div>
+
+        <div class="testimonial">
+          <p>“She has an exceptional ability to adapt her tone and style to match the mood and message. We would highly recommend her to anyone looking for a professional voiceover artist.”</p>
+          <div class="testimonial-author">Ghada Kharsa — Mindloop Studios, Dubai</div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="contact-section" id="contact">
+    <section class="section" id="contact">
       <div class="container">
-        <div class="contact-inner reveal">
-          <span class="eyebrow">Contact</span>
-          <h2>Let’s bring your words to life.</h2>
-          <p>Have a project in mind? I’d love to hear about it. Reach out and let’s discuss how my voice can serve your story.</p>
-          <a href="mailto:info@monikavo.com" class="contact-email">info@monikavo.com</a>
-          
-          <div class="social-row">
-            <a href="https://www.facebook.com/MonikaVO/" class="social-link" aria-label="Facebook" target="_blank">
-              <i data-lucide="facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/monikavo.dxb/" class="social-link" aria-label="Instagram" target="_blank">
-              <i data-lucide="instagram"></i>
-            </a>
-            <a href="https://soundcloud.com/monikavo" class="social-link" aria-label="SoundCloud" target="_blank">
-              <i data-lucide="music"></i>
-            </a>
-            <a href="https://www.youtube.com/c/MonikaVO" class="social-link" aria-label="YouTube" target="_blank">
-              <i data-lucide="youtube"></i>
-            </a>
-          </div>
+        <span class="eyebrow">Contact</span>
+        <h2>Let’s bring your words to life.</h2>
+        <a href="mailto:info@monikavo.com" class="contact-email">info@monikavo.com</a>
+        
+        <div class="social-links">
+          <a href="https://www.facebook.com/MonikaVO/" aria-label="Facebook" target="_blank"><i data-lucide="facebook"></i></a>
+          <a href="https://www.instagram.com/monikavo.dxb/" aria-label="Instagram" target="_blank"><i data-lucide="instagram"></i></a>
+          <a href="https://soundcloud.com/monikavo" aria-label="SoundCloud" target="_blank"><i data-lucide="music"></i></a>
+          <a href="https://www.youtube.com/c/MonikaVO" aria-label="YouTube" target="_blank"><i data-lucide="youtube"></i></a>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Monika Voiceover. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#" id="privacy-link">Privacy Notice</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+  <footer class="footer container">
+    <p>&copy; 2026 Monika Voiceover. All rights reserved.</p>
+    <a href="mailto:info@monikavo.com">Contact</a>
   </footer>
 
-  <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
-    <p class="cookie-text">
-      I use cookies to analyse site traffic and improve your experience. By clicking “Accept”, you consent to the use of cookies. Read my <a href="#" id="cookie-privacy-link">Privacy Notice</a>.
-    </p>
-    <div class="cookie-actions">
-      <button class="cookie-btn accept" id="accept-cookies">Accept</button>
-      <button class="cookie-btn reject" id="reject-cookies">Reject</button>
-    </div>
-  </div>
-
-  <!-- PRIVACY MODAL -->
-  <div class="modal-overlay" id="privacy-modal">
-    <div class="modal" role="dialog" aria-labelledby="privacy-title">
-      <button class="modal-close" id="privacy-close" aria-label="Close privacy notice">
-        <i data-lucide="x"></i>
-      </button>
-      <h2 id="privacy-title">Privacy Notice</h2>
-      <p>This website does not collect personal information unless you voluntarily provide it via email. I use essential cookies to ensure the site functions correctly. Non-essential cookies for analytics are only set if you explicitly accept them.</p>
-      <p>If you have questions about how your data is handled, please contact <a href="mailto:info@monikavo.com" style="color:var(--fg);">info@monikavo.com</a>.</p>
-      <p><em>Last updated: October 2026</em></p>
-    </div>
-  </div>
-
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Lucide icons
-      lucide.createIcons();
+    // Initialize Icons
+    lucide.createIcons();
 
-      // ---------- SCROLL REVEAL ----------
-      const revealElements = document.querySelectorAll('.reveal');
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      revealElements.forEach(el => revealObserver.observe(el));
+    // Mobile Menu Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const icon = navToggle.querySelector('i');
+    
+    let isMenuOpen = false;
 
-      // ---------- HEADER SCROLL ----------
-      const header = document.getElementById('header');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      }, { passive: true });
-
-      // ---------- MOBILE NAV ----------
-      const navToggle = document.getElementById('nav-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileClose = document.getElementById('mobile-close');
-
-      navToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
+    navToggle.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      mobileMenu.classList.toggle('open');
+      
+      if (isMenuOpen) {
+        icon.setAttribute('data-lucide', 'x');
         document.body.style.overflow = 'hidden';
-      });
-
-      mobileClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
+      } else {
+        icon.setAttribute('data-lucide', 'menu');
         document.body.style.overflow = '';
-      });
-
-      // Close mobile menu on link click
-      document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-
-      // ---------- MARQUEE DUPLICATION (SEAMLESS LOOP) ----------
-      // We clone the children of each row to make it look infinite.
-      ['row-1', 'row-2', 'row-3'].forEach(id => {
-        const row = document.getElementById(id);
-        if (row) {
-          const content = row.innerHTML;
-          row.innerHTML = content + content; // Double the content
-        }
-      });
-
-      // ---------- TESTIMONIAL SLIDER ----------
-      const slides = document.querySelectorAll('.testimonial-slide');
-      const dots = document.querySelectorAll('.testimonial-dot');
-      let currentSlide = 0;
-      let slideInterval;
-
-      const showSlide = (index) => {
-        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-        currentSlide = index;
-      };
-
-      const nextSlide = () => {
-        showSlide((currentSlide + 1) % slides.length);
-      };
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          clearInterval(slideInterval);
-          showSlide(parseInt(dot.dataset.index));
-          slideInterval = setInterval(nextSlide, 6000);
-        });
-      });
-
-      slideInterval = setInterval(nextSlide, 6000);
-
-      const slider = document.querySelector('.testimonial-slider');
-      slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-      slider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 6000));
-
-      // ---------- COOKIE CONSENT ----------
-      const cookieBanner = document.getElementById('cookie-banner');
-      const acceptCookies = document.getElementById('accept-cookies');
-      const rejectCookies = document.getElementById('reject-cookies');
-
-      if (!localStorage.getItem('cookieConsent')) {
-        cookieBanner.classList.add('visible');
       }
+      lucide.createIcons();
+    });
 
-      const setConsent = (value) => {
-        localStorage.setItem('cookieConsent', value);
-        cookieBanner.classList.remove('visible');
-      };
-
-      acceptCookies.addEventListener('click', () => setConsent('accepted'));
-      rejectCookies.addEventListener('click', () => setConsent('rejected'));
-
-      // ---------- PRIVACY MODAL ----------
-      const privacyModal = document.getElementById('privacy-modal');
-      const privacyLink = document.getElementById('privacy-link');
-      const cookiePrivacyLink = document.getElementById('cookie-privacy-link');
-      const privacyClose = document.getElementById('privacy-close');
-
-      const openPrivacy = (e) => {
-        e.preventDefault();
-        privacyModal.classList.add('open');
-      };
-
-      privacyLink.addEventListener('click', openPrivacy);
-      cookiePrivacyLink.addEventListener('click', openPrivacy);
-
-      privacyClose.addEventListener('click', () => privacyModal.classList.remove('open'));
-      privacyModal.addEventListener('click', (e) => {
-        if (e.target === privacyModal) privacyModal.classList.remove('open');
+    // Close menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('open');
+        icon.setAttribute('data-lucide', 'menu');
+        document.body.style.overflow = '';
+        lucide.createIcons();
       });
+    });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') privacyModal.classList.remove('open');
-      });
+    // Marquee Cloning for seamless loop
+    ['row-1', 'row-2', 'row-3'].forEach(id => {
+      const row = document.getElementById(id);
+      if (row) {
+        row.innerHTML = row.innerHTML + row.innerHTML;
+      }
     });
   </script>
 </body>
