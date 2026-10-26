@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monika — Voiceover Artist</title>
   <meta name="description" content="Professional voiceover artist with 16+ years of experience. Warm, versatile voice for commercials, corporate, e-learning, and documentaries.">
   
-  <!-- Fonts: Fraunces for display, Inter for UI -->
+  <!-- Fonts: Instrument Serif for display, Inter for UI -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,32 +20,23 @@
   <style>
     /* ---------- DESIGN TOKENS ---------- */
     :root {
-      --bg: #faf8f5;
+      --bg: #f4f3f0;
       --surface: #ffffff;
-      --text: #1c1917;
-      --text-muted: #57534e;
-      --text-light: #78716c;
-      --accent: #c2410c;
-      --accent-hover: #9a3412;
-      --accent-soft: #ffedd5;
-      --border: #e7e5e4;
-      --radius: 12px;
-      --radius-full: 999px;
+      --ink: #111110;
+      --ink-muted: #555552;
+      --border: #dcdad5;
+      --accent: #c84b31;
+      --accent-hover: #a63a23;
+      --dark-bg: #111110;
+      --dark-surface: #1c1c1a;
       
-      --font-display: 'Fraunces', Georgia, serif;
+      --font-display: 'Instrument Serif', Georgia, serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-      --transition-fast: 180ms var(--ease-out);
-      --transition-base: 300ms var(--ease-out);
+      --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+      --transition: 300ms var(--ease-out);
       
-      --max-width: 1200px;
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2.5rem;
-      --space-xl: 4rem;
-      --space-2xl: 6rem;
+      --max-width: 1400px;
     }
 
     /* ---------- RESET ---------- */
@@ -63,8 +54,8 @@
     body {
       font-family: var(--font-body);
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      color: var(--ink);
+      line-height: 1.5;
       font-size: 1rem;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -94,7 +85,7 @@
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 var(--space-md);
+      padding: 0 1.5rem;
     }
 
     .sr-only {
@@ -109,52 +100,47 @@
       border: 0;
     }
 
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
     /* ---------- SCROLL REVEAL ---------- */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(20px);
       transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
     }
 
     .reveal.in-view {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    /* ---------- TYPOGRAPHY ---------- */
-    h1, h2, h3 {
-      font-family: var(--font-display);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-    }
-
-    h3 {
-      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-    }
-
-    .eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .lead {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 52ch;
     }
 
     /* ---------- HEADER ---------- */
@@ -164,15 +150,15 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: var(--space-sm) 0;
-      background: transparent;
-      transition: background var(--transition-base), box-shadow var(--transition-base);
+      padding: 1.5rem 0;
+      transition: background var(--transition), padding var(--transition), border-bottom var(--transition);
     }
 
     .site-header.scrolled {
-      background: rgba(250, 248, 245, 0.9);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 var(--border);
+      padding: 1rem 0;
+      background: rgba(244, 243, 240, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
@@ -183,113 +169,65 @@
 
     .logo {
       font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.5rem;
       letter-spacing: -0.02em;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
     }
 
     .logo span {
       font-family: var(--font-body);
-      font-weight: 400;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-left: 0.4rem;
+      color: var(--ink-muted);
+    }
+
+    .nav-links {
+      display: none;
     }
 
     .header-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border: 1.5px solid var(--text);
-      border-radius: var(--radius-full);
+      padding: 0.6rem 1.2rem;
+      background: var(--ink);
+      color: var(--bg);
       font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-weight: 500;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+      transition: background var(--transition);
       min-height: 44px;
     }
 
     .header-cta:hover {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-full);
-    }
-
-    /* Mobile nav */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 99;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-lg);
-      padding: var(--space-xl);
-    }
-
-    .mobile-nav.open {
-      display: flex;
-    }
-
-    .mobile-nav a {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 500;
-      transition: color var(--transition-fast);
-    }
-
-    .mobile-nav a:hover {
-      color: var(--accent);
-    }
-
-    .mobile-nav-close {
-      position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--accent);
     }
 
     /* ---------- HERO ---------- */
     .hero {
-      padding: calc(var(--space-2xl) + 60px) 0 var(--space-xl);
+      padding: 8rem 0 4rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      background: var(--dark-bg);
+      color: var(--bg);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: var(--space-xl);
+      gap: 3rem;
       align-items: center;
     }
 
-    .hero-content {
-      max-width: 560px;
-    }
-
     .hero-content h1 {
-      margin-top: var(--space-sm);
-      margin-bottom: var(--space-md);
+      color: var(--bg);
+      margin-bottom: 1.5rem;
     }
 
     .hero-content h1 em {
@@ -297,98 +235,84 @@
       color: var(--accent);
     }
 
-    .hero-content .lead {
-      margin-bottom: var(--space-lg);
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #a3a3a0;
+      max-width: 48ch;
+      margin-bottom: 2.5rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-sm);
+      gap: 1rem;
       align-items: center;
     }
 
-    /* Magnetic CTA */
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.9rem 2rem;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
       background: var(--accent);
       color: #fff;
-      border-radius: var(--radius-full);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: background var(--transition-fast), transform var(--transition-fast);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background var(--transition), transform var(--transition);
       min-height: 52px;
-      will-change: transform;
     }
 
     .btn-primary:hover {
       background: var(--accent-hover);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.97);
-    }
-
-    .btn-primary svg {
-      width: 18px;
-      height: 18px;
+      transform: translateY(-2px);
     }
 
     .btn-ghost {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.9rem 1.5rem;
-      color: var(--text-muted);
+      padding: 1rem 1.5rem;
+      color: #a3a3a0;
       font-size: 0.9rem;
       font-weight: 500;
-      border-bottom: 1.5px solid transparent;
-      transition: border-color var(--transition-fast), color var(--transition-fast);
+      transition: color var(--transition);
       min-height: 52px;
     }
 
     .btn-ghost:hover {
-      border-color: var(--text);
-      color: var(--text);
+      color: var(--bg);
     }
 
     /* Audio Player Card */
     .player-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-lg);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-      max-width: 520px;
+      background: var(--dark-surface);
+      border: 1px solid #333330;
+      padding: 2rem;
       width: 100%;
+      max-width: 500px;
     }
 
     .player-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: var(--space-md);
+      align-items: center;
+      margin-bottom: 1.5rem;
     }
 
     .player-label {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-light);
+      color: #a3a3a0;
     }
 
     .player-label span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       animation: pulse 2s infinite;
@@ -399,16 +323,23 @@
       50% { opacity: 0.3; }
     }
 
+    .player-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--bg);
+      margin-bottom: 1.5rem;
+    }
+
     .player-controls {
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
-      margin-bottom: var(--space-md);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .play-btn {
-      width: 56px;
-      height: 56px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: var(--accent);
       color: #fff;
@@ -416,7 +347,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: background var(--transition-fast), transform var(--transition-fast);
+      transition: background var(--transition), transform var(--transition);
     }
 
     .play-btn:hover {
@@ -428,8 +359,8 @@
     }
 
     .play-btn svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
     }
 
     #waveform {
@@ -441,30 +372,22 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.8rem;
-      color: var(--text-light);
+      color: #888884;
       font-variant-numeric: tabular-nums;
     }
 
-    .player-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    /* ---------- SPECIALIZATIONS ---------- */
+    /* ---------- SECTIONS ---------- */
     .section {
-      padding: var(--space-xl) 0;
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .section-header {
-      margin-bottom: var(--space-lg);
+      margin-bottom: 4rem;
+      max-width: 600px;
     }
 
-    .section-header h2 {
-      margin-top: var(--space-xs);
-    }
-
+    /* ---------- SPECIALISATIONS ---------- */
     .spec-list {
       display: grid;
       grid-template-columns: 1fr;
@@ -474,141 +397,187 @@
 
     .spec-item {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-xs);
-      padding: var(--space-md) 0;
+      grid-template-columns: 2rem 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
       border-bottom: 1px solid var(--border);
-      transition: background var(--transition-fast);
+      transition: background var(--transition);
     }
 
     .spec-item:hover {
       background: var(--surface);
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     .spec-number {
       font-family: var(--font-display);
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--accent);
-      font-weight: 500;
     }
 
     .spec-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .spec-content p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 56ch;
+      font-size: 1rem;
+      color: var(--ink-muted);
+      max-width: 60ch;
     }
 
     /* ---------- ABOUT ---------- */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: var(--space-lg);
+      gap: 3rem;
       align-items: center;
     }
 
     .about-image {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 3/4;
       background: var(--border);
-      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
     }
 
     .about-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: grayscale(20%) contrast(110%);
     }
 
     .about-text h2 {
-      margin-bottom: var(--space-md);
+      margin-bottom: 1.5rem;
     }
 
     .about-text p {
-      margin-bottom: var(--space-sm);
-      color: var(--text-muted);
-      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--ink-muted);
+      font-size: 1.05rem;
+      max-width: 60ch;
     }
 
     .about-signature {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: var(--accent);
-      margin-top: var(--space-md);
+      margin-top: 2rem;
     }
 
-    /* ---------- CLIENT MARQUEE ---------- */
+    /* ---------- DEMOS & CLIENTS (MARQUEE) ---------- */
+    .client-intro {
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .client-intro svg {
+      color: var(--accent);
+    }
+
     .marquee-wrapper {
       overflow: hidden;
-      margin-top: var(--space-lg);
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      position: relative;
+      padding: 1rem 0;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
 
     .marquee {
       display: flex;
-      gap: var(--space-lg);
+      gap: 2rem;
       width: max-content;
       animation: scroll 40s linear infinite;
     }
 
-    .marquee:hover {
+    .marquee-wrapper:hover .marquee {
       animation-play-state: paused;
     }
 
     @keyframes scroll {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to { transform: translateX(calc(-50% - 1rem)); }
     }
 
     .client-logo {
       flex-shrink: 0;
-      width: 100px;
-      height: 60px;
+      width: 140px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      filter: grayscale(100%);
-      opacity: 0.5;
-      transition: opacity var(--transition-fast), filter var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .client-logo:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: scale(1.1);
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      transition: all var(--transition);
+      cursor: pointer;
     }
 
     .client-logo img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all var(--transition);
+    }
+
+    /* Hover Affordance */
+    .client-logo::after {
+      content: 'Play Sample';
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 16, 0.85);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .client-logo:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .client-logo:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .client-logo:hover::after {
+      opacity: 1;
     }
 
     /* ---------- TESTIMONIALS ---------- */
     .testimonial-section {
-      background: var(--text);
+      background: var(--dark-bg);
       color: var(--bg);
-      padding: var(--space-xl) 0;
+      padding: 6rem 0;
     }
 
-    .testimonial-section .section-header h2 {
+    .testimonial-section h2 {
       color: var(--bg);
-    }
-
-    .testimonial-section .eyebrow {
-      color: var(--accent-soft);
     }
 
     .testimonial-slider {
+      max-width: 800px;
       position: relative;
-      max-width: 720px;
     }
 
     .testimonial-slide {
@@ -617,67 +586,66 @@
 
     .testimonial-slide.active {
       display: block;
-      animation: fadeIn 500ms var(--ease-out);
+      animation: fadeIn 400ms var(--ease-out);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .testimonial-quote {
       font-family: var(--font-display);
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      line-height: 1.4;
-      margin-bottom: var(--space-md);
-      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      color: var(--bg);
     }
 
     .testimonial-author {
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
+      gap: 1rem;
     }
 
     .testimonial-avatar {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--accent-soft);
+      background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--accent);
-      flex-shrink: 0;
+      font-size: 1.2rem;
+      color: #fff;
     }
 
     .testimonial-author-info strong {
       display: block;
       font-size: 0.95rem;
+      color: var(--bg);
     }
 
     .testimonial-author-info span {
-      font-size: 0.8rem;
-      color: var(--text-light);
+      font-size: 0.85rem;
+      color: #888884;
     }
 
     .testimonial-controls {
       display: flex;
-      gap: var(--space-xs);
-      margin-top: var(--space-lg);
+      gap: 0.5rem;
+      margin-top: 3rem;
     }
 
     .testimonial-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: rgba(255,255,255,0.2);
-      transition: background var(--transition-fast), transform var(--transition-fast);
+      transition: background var(--transition);
       min-width: 44px;
       min-height: 44px;
-      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -688,8 +656,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      transition: background var(--transition-fast);
+      background: rgba(255,255,255,0.3);
+      transition: background var(--transition);
     }
 
     .testimonial-dot.active::after {
@@ -698,42 +666,41 @@
 
     /* ---------- CONTACT ---------- */
     .contact-section {
-      padding: var(--space-2xl) 0;
+      padding: 8rem 0;
     }
 
     .contact-inner {
-      max-width: 640px;
+      max-width: 800px;
     }
 
     .contact-inner h2 {
-      margin-bottom: var(--space-sm);
+      margin-bottom: 1.5rem;
     }
 
     .contact-inner p {
-      color: var(--text-muted);
-      margin-bottom: var(--space-lg);
-      font-size: 1.1rem;
+      color: var(--ink-muted);
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
     }
 
     .contact-email {
       display: inline-block;
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 500;
-      color: var(--accent);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--ink);
       border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.25rem;
-      transition: opacity var(--transition-fast);
+      padding-bottom: 0.5rem;
+      transition: color var(--transition);
     }
 
     .contact-email:hover {
-      opacity: 0.7;
+      color: var(--accent);
     }
 
     .social-row {
       display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-lg);
+      gap: 1rem;
+      margin-top: 4rem;
     }
 
     .social-link {
@@ -744,50 +711,41 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      transition: all var(--transition);
     }
 
     .social-link:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    .social-link svg {
-      width: 20px;
-      height: 20px;
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
     }
 
     /* ---------- FOOTER ---------- */
     .site-footer {
       border-top: 1px solid var(--border);
-      padding: var(--space-lg) 0;
+      padding: 2rem 0;
     }
 
     .footer-inner {
       display: flex;
       flex-direction: column;
-      gap: var(--space-sm);
+      gap: 1rem;
       align-items: center;
       text-align: center;
       font-size: 0.85rem;
-      color: var(--text-light);
+      color: var(--ink-muted);
     }
 
     .footer-links {
       display: flex;
-      gap: var(--space-md);
-    }
-
-    .footer-links a {
-      transition: color var(--transition-fast);
+      gap: 2rem;
     }
 
     .footer-links a:hover {
       color: var(--accent);
     }
 
-    /* ---------- COOKIE BANNER ---------- */
+    /* ---------- COOKIE & MODAL ---------- */
     .cookie-banner {
       position: fixed;
       bottom: 0;
@@ -795,12 +753,12 @@
       width: 100%;
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: var(--space-md);
+      padding: 1.5rem;
       z-index: 200;
       display: none;
       flex-direction: column;
-      gap: var(--space-sm);
-      box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+      gap: 1rem;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
     }
 
     .cookie-banner.visible {
@@ -809,62 +767,58 @@
 
     .cookie-text {
       font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 720px;
+      color: var(--ink-muted);
+      max-width: 800px;
     }
 
     .cookie-text a {
       color: var(--accent);
       text-decoration: underline;
-      text-underline-offset: 2px;
     }
 
     .cookie-actions {
       display: flex;
-      gap: var(--space-sm);
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
     .cookie-btn {
-      padding: 0.7rem 1.5rem;
-      border-radius: var(--radius-full);
+      padding: 0.8rem 2rem;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 500;
       min-height: 44px;
-      transition: background var(--transition-fast), color var(--transition-fast);
+      transition: all var(--transition);
     }
 
     .cookie-btn.accept {
-      background: var(--accent);
-      color: #fff;
+      background: var(--ink);
+      color: var(--bg);
     }
 
     .cookie-btn.accept:hover {
-      background: var(--accent-hover);
+      background: var(--accent);
     }
 
     .cookie-btn.reject {
       border: 1px solid var(--border);
-      color: var(--text-muted);
+      color: var(--ink-muted);
     }
 
     .cookie-btn.reject:hover {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
+      border-color: var(--ink);
+      color: var(--ink);
     }
 
-    /* ---------- PRIVACY MODAL ---------- */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(28, 25, 23, 0.6);
+      background: rgba(17, 17, 16, 0.8);
       backdrop-filter: blur(4px);
       z-index: 300;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: var(--space-md);
+      padding: 1.5rem;
     }
 
     .modal-overlay.open {
@@ -873,55 +827,57 @@
 
     .modal {
       background: var(--surface);
-      border-radius: var(--radius);
-      padding: var(--space-lg);
-      max-width: 560px;
+      padding: 2.5rem;
+      max-width: 600px;
       width: 100%;
-      max-height: 80vh;
+      max-height: 85vh;
       overflow-y: auto;
       position: relative;
     }
 
     .modal h2 {
-      margin-bottom: var(--space-md);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
     }
 
     .modal p {
       font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: var(--space-sm);
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
     }
 
     .modal-close {
       position: absolute;
-      top: var(--space-sm);
-      right: var(--space-sm);
+      top: 1rem;
+      right: 1rem;
       width: 44px;
       height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      transition: background var(--transition-fast);
+      transition: background var(--transition);
     }
 
     .modal-close:hover {
-      background: var(--border);
+      background: var(--bg);
     }
 
     /* ---------- RESPONSIVE ---------- */
     @media (min-width: 768px) {
       .hero-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
       }
 
       .spec-list {
         grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-xl);
+        column-gap: 4rem;
       }
 
       .about-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 4rem;
       }
 
       .cookie-banner {
@@ -937,44 +893,23 @@
       }
     }
 
-    @media (min-width: 1024px) {
-      .nav-toggle {
-        display: none;
-      }
-
-      .mobile-nav {
-        display: none !important;
-      }
-    }
-
-    @media (max-width: 1023px) {
-      .header-cta {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-    }
-
     @media (max-width: 767px) {
       .hero {
+        padding-top: 8rem;
         min-height: auto;
-        padding-top: calc(var(--space-xl) + 60px);
       }
 
       .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
 
-      .btn-primary, .btn-ghost {
-        width: 100%;
-        justify-content: center;
+      .player-card {
+        padding: 1.5rem;
       }
 
-      .spec-content h3 {
-        font-size: 1.15rem;
+      .about-image {
+        margin: 0 auto;
       }
 
       .cookie-actions {
@@ -987,7 +922,6 @@
       }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1013,22 +947,8 @@
       <nav aria-label="Main">
         <a href="#contact" class="header-cta">Contact</a>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <i data-lucide="menu"></i>
-      </button>
     </div>
   </header>
-
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobile-nav">
-    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-      <i data-lucide="x"></i>
-    </button>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-  </div>
 
   <main id="main">
 
@@ -1037,15 +957,15 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <p class="eyebrow">Voiceover Artist & Narrator</p>
+            <span class="eyebrow">Voiceover Artist & Narrator</span>
             <h1>A voice that <em>connects.</em></h1>
-            <p class="lead">With over 16 years of experience, I help brands find their voice. Warm, versatile, and delivered with precision from my studio in Dubai.</p>
+            <p>With over 16 years of experience, I help brands find their voice. Warm, versatile, and delivered with precision from my studio in Dubai.</p>
             <div class="hero-actions">
               <a href="#contact" class="btn-primary magnetic" id="magnetic-cta">
                 Let’s work together
                 <i data-lucide="arrow-right"></i>
               </a>
-              <a href="#work" class="btn-ghost">
+              <a href="#demos" class="btn-ghost">
                 Explore demos
                 <i data-lucide="chevron-down"></i>
               </a>
@@ -1059,7 +979,7 @@
                 <span id="time-current">0:00</span>
               </div>
             </div>
-            <div class="player-title">Commercial Reel — 2025</div>
+            <div class="player-title">Commercial Showreel — 2025</div>
             <div class="player-controls">
               <button class="play-btn" id="play-btn" aria-label="Play demo">
                 <i data-lucide="play" id="play-icon"></i>
@@ -1075,11 +995,11 @@
       </div>
     </section>
 
-    <!-- SPECIALIZATIONS -->
-    <section class="section" id="work">
+    <!-- SPECIALISATIONS -->
+    <section class="section" id="specialisations">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Specializations</p>
+          <span class="eyebrow">Specialisations</span>
           <h2>What I do</h2>
         </div>
         <div class="spec-list">
@@ -1130,7 +1050,7 @@
             <img src="images/About.jpg" alt="Monika, voiceover artist" loading="lazy">
           </div>
           <div class="about-text reveal">
-            <p class="eyebrow">About</p>
+            <span class="eyebrow">About</span>
             <h2>A voice that stands out</h2>
             <p>I’ve voiced for over 55 multinational brands across radio, TV, IVR, corporate video, audiobooks, and documentaries. My voice is warm and versatile — able to shift from a mother’s voice to a doctor, a trainer, a friend, or a no-nonsense professional.</p>
             <p>Based in Dubai, I offer professional voiceover services in English, Hindi, and Urdu. My journey began at age 10 when a newspaper article about voiceover artists planted the seed. I landed my first job in 2009 and have loved every moment since.</p>
@@ -1140,98 +1060,136 @@
       </div>
     </section>
 
-    <!-- CLIENTS -->
-    <section class="section" id="clients">
+    <!-- DEMOS & CLIENTS -->
+    <section class="section" id="demos">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Trusted by</p>
+          <span class="eyebrow">Demos & Clients</span>
           <h2>Brands I’ve worked with</h2>
         </div>
+        <p class="client-intro reveal">
+          <i data-lucide="mouse-pointer-click"></i> Hover over any logo to play a sample.
+        </p>
       </div>
+      
+      <!-- Marquee Container -->
       <div class="marquee-wrapper reveal">
         <div class="marquee" id="marquee">
-          <!-- Logos will be duplicated via JS for seamless loop -->
-          <div class="client-logo"><img src="images/MD.png" alt="Mai Dubai" loading="lazy"></div>
-          <div class="client-logo"><img src="images/osra.png" alt="Al Osra Sugar" loading="lazy"></div>
-          <div class="client-logo"><img src="images/wb.jpeg" alt="Warner Brothers" loading="lazy"></div>
-          <div class="client-logo"><img src="images/Kinder.svg" alt="Kinder Joy" loading="lazy"></div>
-          <div class="client-logo"><img src="images/mac.svg" alt="McDonald’s" loading="lazy"></div>
-          <div class="client-logo"><img src="images/fly.svg" alt="Fly Dubai" loading="lazy"></div>
-          <div class="client-logo"><img src="images/peugeot.png" alt="Peugeot" loading="lazy"></div>
-          <div class="client-logo"><img src="images/head.svg" alt="Head & Shoulders" loading="lazy"></div>
-          <div class="client-logo"><img src="images/RTA.png" alt="RTA Dubai" loading="lazy"></div>
-          <div class="client-logo"><img src="images/IKEA.svg" alt="IKEA" loading="lazy"></div>
-          <div class="client-logo"><img src="images/DAC.webp" alt="DAC" loading="lazy"></div>
-          <div class="client-logo"><img src="images/rl.png" alt="Red Label" loading="lazy"></div>
-          <div class="client-logo"><img src="images/dsf.png" alt="Dubai Shopping Festival" loading="lazy"></div>
-          <div class="client-logo"><img src="images/renault.svg" alt="Renault" loading="lazy"></div>
-          <div class="client-logo"><img src="images/always.png" alt="Always" loading="lazy"></div>
-          <div class="client-logo"><img src="images/johnsons.svg" alt="Johnson’s" loading="lazy"></div>
-          <div class="client-logo"><img src="images/whisper.png" alt="Whisper" loading="lazy"></div>
-          <div class="client-logo"><img src="images/kfc.svg" alt="KFC" loading="lazy"></div>
-          <div class="client-logo"><img src="images/ukvi.jpg" alt="UKVI" loading="lazy"></div>
-          <div class="client-logo"><img src="images/india_gate_rice.jpg" alt="India Gate" loading="lazy"></div>
-          <div class="client-logo"><img src="images/pediasure.png" alt="Pediasure" loading="lazy"></div>
-          <div class="client-logo"><img src="images/clorox.png" alt="Clorox" loading="lazy"></div>
-          <div class="client-logo"><img src="images/puck.png" alt="Puck" loading="lazy"></div>
-          <div class="client-logo"><img src="images/oreo.svg" alt="Oreo" loading="lazy"></div>
-          <div class="client-logo"><img src="images/garnier.png" alt="Garnier" loading="lazy"></div>
-          <div class="client-logo"><img src="images/fair_and_lovely.png" alt="Fair & Lovely" loading="lazy"></div>
-          <div class="client-logo"><img src="images/vaseline.png" alt="Vaseline" loading="lazy"></div>
-          <div class="client-logo"><img src="images/rainbow_milk.webp" alt="Rainbow Milk" loading="lazy"></div>
-          <div class="client-logo"><img src="images/damas.png" alt="Damas Jewellery" loading="lazy"></div>
-          <div class="client-logo"><img src="images/cafu.jpg" alt="Cafu" loading="lazy"></div>
-          <div class="client-logo"><img src="images/careem.png" alt="Careem" loading="lazy"></div>
-          <div class="client-logo"><img src="images/jazeera.png" alt="Al Jazeera" loading="lazy"></div>
-          <div class="client-logo"><img src="images/kadak_fm.png" alt="Kadak FM" loading="lazy"></div>
-          <div class="client-logo"><img src="images/loreal.png" alt="L’Oréal" loading="lazy"></div>
-          <div class="client-logo"><img src="images/etisalat.png" alt="e&" loading="lazy"></div>
-          <div class="client-logo"><img src="images/du.png" alt="Du" loading="lazy"></div>
-          <div class="client-logo"><img src="images/dole.png" alt="Dole" loading="lazy"></div>
-          <div class="client-logo"><img src="images/veet.png" alt="Veet" loading="lazy"></div>
-          <div class="client-logo"><img src="images/vodafone.png" alt="Vodafone" loading="lazy"></div>
-          <div class="client-logo"><img src="images/nestle.png" alt="Nestlé" loading="lazy"></div>
-          <div class="client-logo"><img src="images/pantene.jpg" alt="Pantene" loading="lazy"></div>
-          <div class="client-logo"><img src="images/panasonic.png" alt="Panasonic" loading="lazy"></div>
-          <div class="client-logo"><img src="images/sunsilk.png" alt="Sunsilk" loading="lazy"></div>
-          <div class="client-logo"><img src="images/tang.png" alt="Tang" loading="lazy"></div>
-          <div class="client-logo"><img src="images/nestle_professional.png" alt="Nestlé Professional" loading="lazy"></div>
-          <div class="client-logo"><img src="images/carrefour.png" alt="Carrefour" loading="lazy"></div>
-          <div class="client-logo"><img src="images/scholl.png" alt="Scholl" loading="lazy"></div>
-          <div class="client-logo"><img src="images/afia_oil.jpg" alt="Afia Oil" loading="lazy"></div>
-          <div class="client-logo"><img src="images/pampers.png" alt="Pampers" loading="lazy"></div>
-          <div class="client-logo"><img src="images/visa.png" alt="Visa" loading="lazy"></div>
-          <div class="client-logo"><img src="images/marmum_dairy.png" alt="Marmum Dairy" loading="lazy"></div>
-          <div class="client-logo"><img src="images/dettol.png" alt="Dettol" loading="lazy"></div>
-          <div class="client-logo"><img src="images/noor.jpeg" alt="Noor Oil" loading="lazy"></div>
-          <div class="client-logo"><img src="images/BTAD.webp" alt="Big Ticket Abu Dhabi" loading="lazy"></div>
-          <div class="client-logo"><img src="images/galaxy.svg" alt="Galaxy" loading="lazy"></div>
-          <div class="client-logo"><img src="images/downy.png" alt="Downy" loading="lazy"></div>
-          <div class="client-logo"><img src="images/air_wick.png" alt="Air Wick" loading="lazy"></div>
-          <div class="client-logo"><img src="images/lipton.jpeg" alt="Lipton" loading="lazy"></div>
-          <div class="client-logo"><img src="images/najm.png" alt="Najm" loading="lazy"></div>
-          <div class="client-logo"><img src="images/deem.png" alt="Deem" loading="lazy"></div>
-          <div class="client-logo"><img src="images/adib.jpg" alt="ADIB" loading="lazy"></div>
-          <div class="client-logo"><img src="images/rakbank.png" alt="RAKBANK" loading="lazy"></div>
-          <div class="client-logo"><img src="images/citibank.png" alt="Citibank" loading="lazy"></div>
-          <div class="client-logo"><img src="images/mashreq_bank.png" alt="Mashreq" loading="lazy"></div>
-          <div class="client-logo"><img src="images/mashreq_neo.png" alt="Mashreq Neo" loading="lazy"></div>
-          <div class="client-logo"><img src="images/mashreq_gold.png" alt="Mashreq Gold" loading="lazy"></div>
-          <div class="client-logo"><img src="images/al_rawabi_dairy.jpeg" alt="Al Rawabi" loading="lazy"></div>
-          <div class="client-logo"><img src="images/leaseplan.png" alt="LeasePlan" loading="lazy"></div>
-          <div class="client-logo"><img src="images/toyota.jpg" alt="Toyota" loading="lazy"></div>
-          <div class="client-logo"><img src="images/galleria.png" alt="Galleria Mall" loading="lazy"></div>
-          <div class="client-logo"><img src="images/JAV.png" alt="Jebel Ali Village" loading="lazy"></div>
-          <div class="client-logo"><img src="images/SSS.jpeg" alt="Sun & Sand Sports" loading="lazy"></div>
-          <div class="client-logo"><img src="images/MGD.jpeg" alt="Malabar Gold" loading="lazy"></div>
-          <div class="client-logo"><img src="images/DCT.svg" alt="Abu Dhabi DCT" loading="lazy"></div>
-          <div class="client-logo"><img src="images/mansam.png" alt="Mansam" loading="lazy"></div>
-          <div class="client-logo"><img src="images/himalaya.webp" alt="Himalaya" loading="lazy"></div>
-          <div class="client-logo"><img src="images/sadia.svg" alt="Sadia" loading="lazy"></div>
-          <div class="client-logo"><img src="images/BAS1.png" alt="Bab Al Shams" loading="lazy"></div>
-          <div class="client-logo"><img src="images/dha.png" alt="DHA" loading="lazy"></div>
-          <div class="client-logo"><img src="images/sobha.png" alt="Sobha" loading="lazy"></div>
-          <div class="client-logo"><img src="images/bl.png" alt="Baby Lido" loading="lazy"></div>
+          <!-- The JS below will duplicate these items for a seamless loop -->
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=54FlJUqxLEA&list=PL2QKeU7UhcBMtD_ZLiYdpxJW-rIIUXCKl">
+            <img src="images/MD.png" alt="Mai Dubai" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=FX6CSuhXkHk&list=PL2QKeU7UhcBM7JN_8i7IER4q0q3jdOFf6">
+            <img src="images/osra.png" alt="Al Osra Sugar" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=bRUXOjlVSzc">
+            <img src="images/wb.jpeg" alt="Warner Brothers" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=rkSbqxK4pYg">
+            <img src="images/Kinder.svg" alt="Kinder Joy" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=PNcGuRuPtLc">
+            <img src="images/mac.svg" alt="McDonald’s" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=TUX2A_A0gcI">
+            <img src="images/fly.svg" alt="Fly Dubai" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/peugeot.png" alt="Peugeot" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/head.svg" alt="Head & Shoulders" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/YYLPK4axhgs">
+            <img src="images/RTA.png" alt="RTA Dubai" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=10OP-RdjNFQ&list=PL2QKeU7UhcBP9sl2JuWD06PrKwIxUKezn">
+            <img src="images/IKEA.svg" alt="IKEA" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://on.soundcloud.com/3GWPa5SuXQxbZL8wc0">
+            <img src="images/DAC.webp" alt="DAC" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/mYNAg1p0pjQ?feature=shared">
+            <img src="images/rl.png" alt="Red Label" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://on.soundcloud.com/7zuItpllh2G1XFDFsU">
+            <img src="images/dsf.png" alt="Dubai Shopping Festival" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/renault.svg" alt="Renault" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/J6pwjsGfU2M">
+            <img src="images/always.png" alt="Always" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/RIdBTMmXNuo?feature=shared">
+            <img src="images/johnsons.svg" alt="Johnson’s" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/whisper.png" alt="Whisper" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://soundcloud.com/monikavo/kfc_gptwister_15s_hin-female_n?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=f825f19621d34a55a1dfab8ef5277a88">
+            <img src="images/kfc.svg" alt="KFC" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/ukvi.jpg" alt="UKVI" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/d2qrdgeeZkM?feature=shared">
+            <img src="images/india_gate_rice.jpg" alt="India Gate" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/w1rrbLHj6Dg?">
+            <img src="images/pediasure.png" alt="Pediasure" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://soundcloud.com/monikavo/monika_clorox_hindi-2009?si=b1ce70d1d9a54e12a1274351afb49ef8&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+            <img src="images/clorox.png" alt="Clorox" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/puck.png" alt="Puck" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/99I37tmemAA?feature=shared">
+            <img src="images/oreo.svg" alt="Oreo" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://on.soundcloud.com/Xu0p55688dgdltxO7H">
+            <img src="images/garnier.png" alt="Garnier" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/iejDpy3MtqM?feature=shared">
+            <img src="images/fair_and_lovely.png" alt="Fair & Lovely" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://on.soundcloud.com/UUJiJbZqpPBx5v70Gj">
+            <img src="images/vaseline.png" alt="Vaseline" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/playlist?list=PL2QKeU7UhcBP4vs2y_HYeJ_Eo4PBHJDnQ">
+            <img src="images/rainbow_milk.webp" alt="Rainbow Milk" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/Zk5QecYIfp0?si=TBGAfzUaotOhu9Qt">
+            <img src="images/damas.png" alt="Damas Jewellery" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/VRBtJX46c5s?feature=shared">
+            <img src="images/cafu.jpg" alt="Cafu" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/careem.png" alt="Careem" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/qoSxnOyX-Q4?feature=shared">
+            <img src="images/jazeera.png" alt="Al Jazeera" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://on.soundcloud.com/o8XB29ayVgSlJlWS5V">
+            <img src="images/kadak_fm.png" alt="Kadak FM" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://www.youtube.com/watch?v=M1dPSbWyrU8&list=PL2QKeU7UhcBO0vQK8YV2VHZrhDeP7BCKv">
+            <img src="images/loreal.png" alt="L’Oréal" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://soundcloud.com/monikavo/monika-2013-e-wasel-hindi?si=75999590aa4c4d0391180f92b2dd6b36&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+            <img src="images/etisalat.png" alt="e&" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://soundcloud.com/monikavo/monika-du-2013?si=27ab0b6cf36c4ecd958dcb5197f93ef3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+            <img src="images/du.png" alt="Du" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="#">
+            <img src="images/dole.png" alt="Dole" loading="lazy">
+          </div>
+          <div class="client-logo" data-href="https://youtu.be/e6yxte6tG5I?feature=shared">
+            <img src="images/veet.png" alt="Veet" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
@@ -1240,7 +1198,7 @@
     <section class="testimonial-section" id="testimonials">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Testimonials</p>
+          <span class="eyebrow">Testimonials</span>
           <h2>What clients say</h2>
         </div>
         <div class="testimonial-slider reveal">
@@ -1287,7 +1245,7 @@
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-inner reveal">
-          <p class="eyebrow">Contact</p>
+          <span class="eyebrow">Contact</span>
           <h2>Let’s bring your words to life.</h2>
           <p>Have a project in mind? I’d love to hear about it. Reach out and let’s discuss how my voice can serve your story.</p>
           <a href="mailto:info@monikavo.com" class="contact-email">info@monikavo.com</a>
@@ -1325,7 +1283,7 @@
   <!-- COOKIE BANNER -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
     <p class="cookie-text">
-      I use cookies to improve your experience and analyse site traffic. By clicking “Accept”, you consent to the use of cookies. Read my <a href="#" id="cookie-privacy-link">Privacy Notice</a>.
+      I use cookies to analyse site traffic and improve your experience. By clicking “Accept”, you consent to the use of cookies. Read my <a href="#" id="cookie-privacy-link">Privacy Notice</a>.
     </p>
     <div class="cookie-actions">
       <button class="cookie-btn accept" id="accept-cookies">Accept</button>
@@ -1341,8 +1299,8 @@
       </button>
       <h2 id="privacy-title">Privacy Notice</h2>
       <p>This website does not collect personal information unless you voluntarily provide it via email. I use essential cookies to ensure the site functions correctly. Non-essential cookies for analytics are only set if you explicitly accept them.</p>
-      <p>If you have questions about how your data is handled, please contact <a href="mailto:info@monikavo.com">info@monikavo.com</a>.</p>
-      <p><em>Last updated: October 2026</em></p>
+      <p>If you have questions about how your data is handled, please contact <a href="mailto:info@monikavo.com" style="color:var(--accent);">info@monikavo.com</a>.</p>
+      <p><em>Last updated: January 2026</em></p>
     </div>
   </div>
 
@@ -1373,32 +1331,13 @@
         }
       }, { passive: true });
 
-      // ---------- MOBILE NAV ----------
-      const navToggle = document.getElementById('nav-toggle');
-      const mobileNav = document.getElementById('mobile-nav');
-      const mobileNavClose = document.getElementById('mobile-nav-close');
-      navToggle.addEventListener('click', () => {
-        mobileNav.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-      mobileNavClose.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileNav.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-
       // ---------- WAVESURFER AUDIO PLAYER ----------
-      // Note: Replace this URL with your actual demo audio file.
-      const audioUrl = 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'; // Placeholder
+      // Note: Replace this URL with your actual showreel MP3.
+      const audioUrl = 'https://ia800605.us.archive.org/14/items/testsounds_202010/SampleAudio_0.4mb.mp3'; 
       const wavesurfer = WaveSurfer.create({
         container: '#waveform',
-        waveColor: '#e7e5e4',
-        progressColor: '#c2410c',
+        waveColor: '#444442',
+        progressColor: '#c84b31',
         cursorColor: 'transparent',
         barWidth: 3,
         barGap: 2,
@@ -1503,7 +1442,6 @@
 
       slideInterval = setInterval(nextSlide, 6000);
 
-      // Pause on hover
       const testimonialSlider = document.querySelector('.testimonial-slider');
       testimonialSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
       testimonialSlider.addEventListener('mouseleave', () => {
@@ -1554,19 +1492,28 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           privacyModal.classList.remove('open');
-          mobileNav.classList.remove('open');
-          document.body.style.overflow = '';
         }
       });
 
-      // ---------- MARQUEE DUPLICATION ----------
+      // ---------- MARQUEE & CLICK LOGIC ----------
       const marquee = document.getElementById('marquee');
       if (marquee) {
-        const clone = marquee.cloneNode(true);
-        // Remove IDs to avoid duplicates
-        clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
-        marquee.parentElement.appendChild(clone);
-        // The CSS animation uses translateX(-50%) which works when the content is doubled.
+        // Clone the children to create a seamless loop (doubles the content)
+        const children = Array.from(marquee.children);
+        children.forEach(child => {
+          const clone = child.cloneNode(true);
+          marquee.appendChild(clone);
+        });
+
+        // Handle clicks on the logos to open hyperlinks
+        marquee.querySelectorAll('.client-logo').forEach(logo => {
+          logo.addEventListener('click', () => {
+            const url = logo.getAttribute('data-href');
+            if (url && url !== '#') {
+              window.open(url, '_blank', 'noopener');
+            }
+          });
+        });
       }
     });
   </script>
